@@ -1,0 +1,34 @@
+{
+	"Whiskas":
+	{
+		"type": "food",
+		"price": 20,
+		"restoringPower": 20,
+		"pathToSkin": "WhiskasSkin.bmp",
+		"rank": 1,
+		"toWhom": "Cat",
+		"count": 10
+	},
+
+	"Kitekat":
+	{
+		"type": "food",
+		"price": 30,
+		"restoringPower": 25,
+		"pathToSkin": "KitekatSkin.bmp",
+		"rank": 1,
+		"toWhom": "Cat",
+		"count": 5
+	},
+
+	"Purina":
+	{
+		"type": "food",
+		"price": 50,
+		"restoringPower": 50,
+		"pathToSkin": "PurinaSkin.bmp",
+		"rank": 2,
+		"toWhom": "Cat",
+		"count": 2
+	}
+}

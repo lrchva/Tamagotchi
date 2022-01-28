@@ -11,6 +11,17 @@ void Food::specialEffect()
 	//Slightly increase attention
 	//Slightly decrease tidyness
 }
+Food::Food(const Misc& o)
+{
+    this->type = o.type;
+    this->name = o.name;
+    this->price = o.price;
+    this->restoringPower = o.restoringPower;
+    this->pathToSkin = o.pathToSkin;
+    this->rank = o.rank;
+    this->toWhom = o.toWhom;
+}
+Food::Food(){}
 
 void WashMisc::submitEffect()
 {
