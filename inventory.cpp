@@ -19,6 +19,7 @@ bool Inventory::fillFromJson(QString path)
     {
         for(auto it = json.begin(); it != json.end(); it++)
         {
+            int jhbygvuj = 7;
             if(it.value().toObject()["type"] == "food")
             {
                 Food temp;
@@ -133,11 +134,29 @@ Food Inventory::atFood(QString itemName)
     if(temp == this->food_storage.end()) return Food();
     return temp->first;
 }
+Food Inventory::atFood(size_t itemIndex)
+{
+    auto it = this->food_storage.begin();
+    for(size_t i = 0; i < itemIndex && i < food_storage.size(); i++)
+    {
+        it++;
+    }
+    return it->first;
+}
 WashMisc Inventory::atWashMisc(QString itemName)
 {
     auto temp = this->washMisc_storage.find(itemName);
     if(temp == this->washMisc_storage.end()) return WashMisc();
     return temp->first;
+}
+WashMisc Inventory::atWashMisc(size_t itemIndex)
+{
+    auto it = this->washMisc_storage.begin();
+    for(size_t i = 0; i < itemIndex && i < washMisc_storage.size(); i++)
+    {
+        it++;
+    }
+    return it->first;
 }
 WalkMisc Inventory::atWalkMisc(QString itemName)
 {
@@ -284,4 +303,27 @@ bool Inventory::removeItem(QString itemName, size_t count)
     {
         return false;
     }
+}
+
+size_t Inventory::foodSize()
+{
+    return this->food_storage.size();
+}
+
+size_t Inventory::washMiscSize()
+{
+    return this->washMisc_storage.size();
+}
+
+
+size_t Inventory::size()
+{
+    return
+    (
+                this->food_storage.size() +
+                this->petMisc_storage.size() +
+                this->walkMisc_storage.size() +
+                this->washMisc_storage.size() +
+                this->sleepMisc_storage.size()
+    );
 }

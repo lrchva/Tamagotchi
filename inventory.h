@@ -18,10 +18,18 @@ public:
     bool removeItem(QString itemName, size_t count = 1);
     void clear();
 
+    size_t foodSize();
+    size_t washMiscSize();
+    size_t size();
+
     Food atFood(QString itemName);
+    Food atFood(size_t itemIndex);
     WashMisc atWashMisc(QString itemName);
+    WashMisc atWashMisc(size_t itemIndex);
     WalkMisc atWalkMisc(QString itemName);
+    //TODO
     PetMisc atPetMisc(QString itemName);
+    //TODO
     SleepMisc atSleepMisc(QString itemName);
 };
 

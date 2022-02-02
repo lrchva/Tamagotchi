@@ -1,44 +1,45 @@
 {
-	"Whiskas":
+"Whiskas":
 	{
-		"type": "food",
-		"price": 20,
-		"restoringPower": 20,
-		"pathToSkin": "WhiskasSkin.bmp",
-		"rank": 1,
-		"toWhom": "Cat",
-		"count": 10
+	"type": "food",
+	"price": 20,
+	"restoringPower": 20,
+	"pathToSkin": "D:\\\\Repos\\Al_Tama\\Food_testSkin.png",
+	"rank": 1,
+	"toWhom": "Cat",
+	"count": 10
 	},
 
-	"Kitekat":
+"Kitekat":
 	{
-		"type": "food",
-		"price": 30,
-		"restoringPower": 25,
-		"pathToSkin": "KitekatSkin.bmp",
-		"rank": 1,
-		"toWhom": "Cat",
-		"count": 5
+	"type": "food",
+	"price": 30,
+	"restoringPower": 25,
+	"pathToSkin": "D:\\\\Repos\\Al_Tama\\Food_testSkin.png",
+	"rank": 1,
+	"toWhom": "Cat",
+	"count": 5
 	},
 
-	"Purina":
-	{
-		"type": "food",
-		"price": 50,
-		"restoringPower": 50,
-		"pathToSkin": "PurinaSkin.bmp",
-		"rank": 2,
-		"toWhom": "Cat",
-		"count": 2
-        },
-        "Bed":
-        {
-                "type": "sleepMisc",
-                "price": 50,
-                "restoringPower": 50,
-                "pathToSkin": "BedSkin.bmp",
-                "rank": 2,
-                "toWhom": "Dog",
-                "count": 3
-        }
+"Purina":
+{
+"type": "food",
+"price": 50,
+"restoringPower": 50,
+"pathToSkin": "D:\\\\Repos\\Al_Tama\\Food_testSkin.png",
+"rank": 2,
+	"toWhom": "Cat",
+	"count": 2
+},
+
+"Shower gel":
+{
+"type": "washMisc",
+"price": 50,
+"restoringPower": 50,
+"pathToSkin": "D:\\\\Repos\\Al_Tama\\Wash_testSkin.png",
+"rank": 2,
+"toWhom": "Dog",
+	"count": 3
+	}
 }
