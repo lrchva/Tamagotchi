@@ -271,7 +271,7 @@ bool Inventory::removeItem(QString itemName, size_t count)
         {
             if(petMisc_storage.find(itemName)->second <= count)
             {
-                petMisc_storage.erase(petwalkMisc_storage.find(itemName));
+                petMisc_storage.erase(petMisc_storage.find(itemName));
             }
             else
             {
