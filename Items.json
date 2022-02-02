@@ -30,5 +30,15 @@
 		"rank": 2,
 		"toWhom": "Cat",
 		"count": 2
-	}
+        },
+        "Bed":
+        {
+                "type": "sleepMisc",
+                "price": 50,
+                "restoringPower": 50,
+                "pathToSkin": "BedSkin.bmp",
+                "rank": 2,
+                "toWhom": "Dog",
+                "count": 3
+        }
 }

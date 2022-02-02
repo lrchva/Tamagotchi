@@ -38,7 +38,82 @@ bool Inventory::fillFromJson(QString path)
 
                 this->food_storage[temp.name] = QPair<Food, size_t>(temp, it.value().toObject()["count"].toDouble());
             }
+            else if(it.value().toObject()["type"] == "sleepMisc")
+            {
+                SleepMisc temp;
+                temp.name = it.key();
+                temp.price = it.value().toObject()["price"].toDouble();
+                temp.restoringPower = it.value().toObject()["restoringPower"].toDouble();
+                temp.pathToSkin = it.value().toObject()["pathToSkin"].toString();
+                temp.rank = it.value().toObject()["rank"].toDouble();
+                temp.type = "sleepMisc";
 
+                QString toWhom_s = it.value().toObject()["toWhom"].toString();
+                if(toWhom_s == "Rabbit") temp.toWhom = Misc::toWhomEnum::RABBIT;
+                if(toWhom_s == "Cat") temp.toWhom = Misc::toWhomEnum::CAT;
+                if(toWhom_s == "Dog") temp.toWhom = Misc::toWhomEnum::DOG;
+                if(toWhom_s == "Hamster") temp.toWhom = Misc::toWhomEnum::HAMSTER;
+                if(toWhom_s == "Minipig") temp.toWhom = Misc::toWhomEnum::MINIPIG;
+
+                this->sleepMisc_storage[temp.name] = QPair<SleepMisc, size_t>(temp, it.value().toObject()["count"].toDouble());
+            }
+            else if(it.value().toObject()["type"] == "walkMisc")
+            {
+                WalkMisc temp;
+                temp.name = it.key();
+                temp.price = it.value().toObject()["price"].toDouble();
+                temp.restoringPower = it.value().toObject()["restoringPower"].toDouble();
+                temp.pathToSkin = it.value().toObject()["pathToSkin"].toString();
+                temp.rank = it.value().toObject()["rank"].toDouble();
+                temp.type = "walkMisc";
+
+                QString toWhom_s = it.value().toObject()["toWhom"].toString();
+                if(toWhom_s == "Rabbit") temp.toWhom = Misc::toWhomEnum::RABBIT;
+                if(toWhom_s == "Cat") temp.toWhom = Misc::toWhomEnum::CAT;
+                if(toWhom_s == "Dog") temp.toWhom = Misc::toWhomEnum::DOG;
+                if(toWhom_s == "Hamster") temp.toWhom = Misc::toWhomEnum::HAMSTER;
+                if(toWhom_s == "Minipig") temp.toWhom = Misc::toWhomEnum::MINIPIG;
+
+                this->walkMisc_storage[temp.name] = QPair<WalkMisc, size_t>(temp, it.value().toObject()["count"].toDouble());
+            }
+            else if(it.value().toObject()["type"] == "washMisc")
+        {
+            WashMisc temp;
+            temp.name = it.key();
+            temp.price = it.value().toObject()["price"].toDouble();
+            temp.restoringPower = it.value().toObject()["restoringPower"].toDouble();
+            temp.pathToSkin = it.value().toObject()["pathToSkin"].toString();
+            temp.rank = it.value().toObject()["rank"].toDouble();
+            temp.type = "washMisc";
+
+            QString toWhom_s = it.value().toObject()["toWhom"].toString();
+            if(toWhom_s == "Rabbit") temp.toWhom = Misc::toWhomEnum::RABBIT;
+            if(toWhom_s == "Cat") temp.toWhom = Misc::toWhomEnum::CAT;
+            if(toWhom_s == "Dog") temp.toWhom = Misc::toWhomEnum::DOG;
+            if(toWhom_s == "Hamster") temp.toWhom = Misc::toWhomEnum::HAMSTER;
+            if(toWhom_s == "Minipig") temp.toWhom = Misc::toWhomEnum::MINIPIG;
+
+            this->washMisc_storage[temp.name] = QPair<WashMisc, size_t>(temp, it.value().toObject()["count"].toDouble());
+        }
+            else if(it.value().toObject()["type"] == "petMisc")
+        {
+            PetMisc temp;
+            temp.name = it.key();
+            temp.price = it.value().toObject()["price"].toDouble();
+            temp.restoringPower = it.value().toObject()["restoringPower"].toDouble();
+            temp.pathToSkin = it.value().toObject()["pathToSkin"].toString();
+            temp.rank = it.value().toObject()["rank"].toDouble();
+            temp.type = "petMisc";
+
+            QString toWhom_s = it.value().toObject()["toWhom"].toString();
+            if(toWhom_s == "Rabbit") temp.toWhom = Misc::toWhomEnum::RABBIT;
+            if(toWhom_s == "Cat") temp.toWhom = Misc::toWhomEnum::CAT;
+            if(toWhom_s == "Dog") temp.toWhom = Misc::toWhomEnum::DOG;
+            if(toWhom_s == "Hamster") temp.toWhom = Misc::toWhomEnum::HAMSTER;
+            if(toWhom_s == "Minipig") temp.toWhom = Misc::toWhomEnum::MINIPIG;
+
+            this->petMisc_storage[temp.name] = QPair<PetMisc, size_t>(temp, it.value().toObject()["count"].toDouble());
+        }
         }
     }
     catch(exception e)
@@ -104,6 +179,42 @@ bool Inventory::addItem(const Misc& item, size_t count)
             return true;
         }
     }
+    else if(item.type == "sleepMisc")
+    {
+        if(this->contains(item.name)) this->sleepMisc_storage[item.name].second += count;
+        else
+        {
+            this->sleepMisc_storage[item.name] = QPair<SleepMisc, size_t>(SleepMisc(item), count);
+            return true;
+        }
+    }
+    else if(item.type == "walkMisc")
+    {
+        if(this->contains(item.name)) this->walkMisc_storage[item.name].second += count;
+        else
+        {
+            this->walkMisc_storage[item.name] = QPair<WalkMisc, size_t>(WalkMisc(item), count);
+            return true;
+        }
+    }
+    else if(item.type == "washMisc")
+    {
+        if(this->contains(item.name)) this->washMisc_storage[item.name].second += count;
+        else
+        {
+            this->washMisc_storage[item.name] = QPair<WashMisc, size_t>(WashMisc(item), count);
+            return true;
+        }
+    }
+    else if(item.type == "petMisc")
+    {
+        if(this->contains(item.name)) this->petMisc_storage[item.name].second += count;
+        else
+        {
+            this->petMisc_storage[item.name] = QPair<PetMisc, size_t>(PetMisc(item), count);
+            return true;
+        }
+    }
     //TODO: Add other misc types
     return false;
 }
@@ -121,6 +232,50 @@ bool Inventory::removeItem(QString itemName, size_t count)
             else
             {
                 food_storage.find(itemName)->second -= count;
+            }
+        }
+        if(sleepMisc_storage.find(itemName) != sleepMisc_storage.end())
+        {
+            if(sleepMisc_storage.find(itemName)->second <= count)
+            {
+                sleepMisc_storage.erase(sleepMisc_storage.find(itemName));
+            }
+            else
+            {
+                sleepMisc_storage.find(itemName)->second -= count;
+            }
+        }
+        if(walkMisc_storage.find(itemName) != walkMisc_storage.end())
+        {
+            if(walkMisc_storage.find(itemName)->second <= count)
+            {
+                walkMisc_storage.erase(walkMisc_storage.find(itemName));
+            }
+            else
+            {
+                walkMisc_storage.find(itemName)->second -= count;
+            }
+        }
+        if(washMisc_storage.find(itemName) != washMisc_storage.end())
+        {
+            if(washMisc_storage.find(itemName)->second <= count)
+            {
+                washMisc_storage.erase(washMisc_storage.find(itemName));
+            }
+            else
+            {
+                washMisc_storage.find(itemName)->second -= count;
+            }
+        }
+        if(petMisc_storage.find(itemName) != petMisc_storage.end())
+        {
+            if(petMisc_storage.find(itemName)->second <= count)
+            {
+                petMisc_storage.erase(petwalkMisc_storage.find(itemName));
+            }
+            else
+            {
+                petMisc_storage.find(itemName)->second -= count;
             }
         }
         return true;
