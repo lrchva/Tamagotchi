@@ -1,28 +1,30 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
+#include <QVector>
 #include "Misc.h"
-#include <QString>
-#include <QMap>
+
 class Inventory
 {
-private:
-    QMap<QString, QPair<Food, size_t> > food_storage;
-    QMap<QString, QPair<WashMisc, size_t> > washMisc_storage;
-    QMap<QString, QPair<WalkMisc, size_t> > walkMisc_storage;
-    QMap<QString, QPair<PetMisc, size_t> > petMisc_storage;
-    QMap<QString, QPair<SleepMisc, size_t> > sleepMisc_storage;
 public:
-    bool fillFromJson(QString path);
-    bool contains(QString itemName);
-    bool addItem(const Misc& item, size_t count = 1);
-    bool removeItem(QString itemName, size_t count = 1);
-    void clear();
-
-    Food atFood(QString itemName);
-    WashMisc atWashMisc(QString itemName);
-    WalkMisc atWalkMisc(QString itemName);
-    PetMisc atPetMisc(QString itemName);
-    SleepMisc atSleepMisc(QString itemName);
+    Inventory();
+    class Slot
+    {
+    public:
+        QString pathToSkin;
+        Misc* item;
+        size_t count;
+    };
+private:
+    QVector<Slot> storage;
+public:
+    bool loadFromJson(QString path = "Inventory.json");
+    bool saveToJson(QString path = "Inventory.json");
+    Slot& operator[](size_t index);
+    Slot& operator[](QString name);
+    void addItem(Misc a);
+    void removeItem(size_t index);
+    void removeItem(QString name);
+    size_t size(QString type);
 };
 
 #endif // INVENTORY_H

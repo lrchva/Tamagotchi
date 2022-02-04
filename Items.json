@@ -1,7 +1,7 @@
 {
 	"Whiskas":
 	{
-		"type": "food",
+	"type": "Food",
 		"price": 20,
 		"restoringPower": 20,
 		"pathToSkin": "WhiskasSkin.bmp",
@@ -12,7 +12,7 @@
 
 	"Kitekat":
 	{
-		"type": "food",
+	"type": "Food",
 		"price": 30,
 		"restoringPower": 25,
 		"pathToSkin": "KitekatSkin.bmp",
@@ -23,7 +23,7 @@
 
 	"Purina":
 	{
-		"type": "food",
+	"type": "Food",
 		"price": 50,
 		"restoringPower": 50,
 		"pathToSkin": "PurinaSkin.bmp",

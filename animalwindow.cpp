@@ -11,17 +11,13 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
     ui->setupUi(this);
     shopWindow = new ShopWindow();
     Inventory inv;
-    if(inv.fillFromJson("D:\\\\Repos\\Qt\\Tamagcji_2_0\\Items.json"))
+    if(inv.loadFromJson("D:\\\\Repos\\Qt\\Tamagcji_2_0\\Items.json"))
     {
-        QString message = "";
-        message += QString::number(inv.atFood("Whiskas").restoringPower) + " ";
-        message += QString::number(inv.atFood("Kitekat").restoringPower) + " ";
-        message += QString::number(inv.atFood("Purina").restoringPower) + " ";
-        QMessageBox::information(this, "Title", "Loading successfull\n" + message);
+        QMessageBox::information(this, "Title", "Loading successfull");
     }
     else
     {
-        QMessageBox::critical(this, "Title", "Loading NOT successfull");
+        QMessageBox::critical(this, "Title", "Loading failed");
     }
 }
 
