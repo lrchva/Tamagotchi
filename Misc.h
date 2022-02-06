@@ -1,6 +1,7 @@
 #ifndef MISC
 #define MISC
 #include <QString>
+#include <QMap>
 using namespace std;
 class Misc
 {
@@ -19,7 +20,7 @@ public:
 	size_t restoringPower;
 	size_t rank;
     QString toWhom;
-    void effect();
-    void specialEffect();
+
+    QMap<QString, size_t> effects;
 };
 #endif// MISC
