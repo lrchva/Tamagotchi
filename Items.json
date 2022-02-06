@@ -1,34 +1,52 @@
 {
 	"Whiskas":
 	{
-	"type": "Food",
+		"type": "Food",
 		"price": 20,
 		"restoringPower": 20,
 		"pathToSkin": "WhiskasSkin.bmp",
 		"rank": 1,
 		"toWhom": "Cat",
-		"count": 10
+		"count": 11,
+		"effects":
+		{
+			"hunger_current": 15,
+			"wash_current": -5,
+			"sleep_current": 2
+		}
 	},
 
 	"Kitekat":
 	{
-	"type": "Food",
+		"type": "Food",
 		"price": 30,
 		"restoringPower": 25,
 		"pathToSkin": "KitekatSkin.bmp",
 		"rank": 1,
 		"toWhom": "Cat",
-		"count": 5
+		"count": 5,
+		"effects":
+		{
+			"hunger_current": 20,
+			"wash_current": -5,
+			"sleep_current": 3
+		}
 	},
 
 	"Purina":
 	{
-	"type": "Food",
+		"type": "Food",
 		"price": 50,
 		"restoringPower": 50,
 		"pathToSkin": "PurinaSkin.bmp",
 		"rank": 2,
 		"toWhom": "Cat",
-		"count": 2
+		"count": 2,
+		"effects":
+		{
+			"hunger_current": 40,
+			"wash_current": -5,
+			"sleep_current": 5
+		}
 	}
 }

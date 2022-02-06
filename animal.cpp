@@ -16,7 +16,7 @@ Animal::Animal()
     chars["sleep_max"] = 0;
 }
 
-Animal::Animal(QString name, QString type, size_t level, QMap<QString, size_t> chars)
+Animal::Animal(QString name, QString type, size_t level, QMap<QString, int> chars)
 {
     this->name = name;
     this->type = type;
@@ -45,7 +45,7 @@ void Animal::takeEffects(Misc source)
 {
     try
     {
-        for(auto it = this->chars.keys().begin(); it != this->chars.keys().end(); it++)
+        for(auto it = source.effects.keys().begin(); it != source.effects.keys().end(); it++)
         {
             this->chars[*it] += source.effects[*it];
         }

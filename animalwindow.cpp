@@ -11,7 +11,7 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
     ui->setupUi(this);
     shopWindow = new ShopWindow();
     Inventory inv;
-    if(inv.loadFromJson("D:\\\\Repos\\Qt\\Tamagcji_2_0\\Items.json"))
+    if(inv.loadFromJson("D:\\\\Repos\\Al_Tama\\Items.json"))
     {
         QMessageBox::information(this, "Title", "Loading successfull");
     }

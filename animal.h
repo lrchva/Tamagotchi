@@ -8,7 +8,7 @@ class Animal
 {
 public:
     Animal();
-    Animal(QString, QString, size_t, QMap<QString, size_t>);
+    Animal(QString, QString, size_t, QMap<QString, int>);
     QString name;
     QString type;
     size_t level;

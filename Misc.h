@@ -2,6 +2,7 @@
 #define MISC
 #include <QString>
 #include <QMap>
+#include <QJsonObject>
 using namespace std;
 class Misc
 {
@@ -21,6 +22,8 @@ public:
 	size_t rank;
     QString toWhom;
 
-    QMap<QString, size_t> effects;
+    QMap<QString, int> effects;
+
+    static Misc createFromJsonObjectIterator(QJsonObject::iterator);
 };
 #endif// MISC
