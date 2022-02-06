@@ -8,9 +8,12 @@
 		"rank": 1,
 		"toWhom": "Cat",
 		"count": 11,
-		"hunger_current": 15,
-		"wash_current": -5,
-		"sleep_current": 2
+		"effects":
+		{
+			"hunger_current": 15,
+			"wash_current": -5,
+			"sleep_current": 2
+		}
 	},
 
 	"Kitekat":
@@ -22,9 +25,12 @@
 		"rank": 1,
 		"toWhom": "Cat",
 		"count": 5,
-		"hunger_current": 20,
-		"wash_current": -5,
-		"sleep_current": 3
+		"effects":
+		{
+			"hunger_current": 20,
+			"wash_current": -5,
+			"sleep_current": 3
+		}
 	},
 
 	"Purina":
@@ -36,8 +42,11 @@
 		"rank": 2,
 		"toWhom": "Cat",
 		"count": 2,
-		"hunger_current": 40,
-		"wash_current": -5,
-		"sleep_current": 5
+		"effects":
+		{
+			"hunger_current": 40,
+			"wash_current": -5,
+			"sleep_current": 5
+		}
 	}
 }

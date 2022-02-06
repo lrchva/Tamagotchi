@@ -32,3 +32,35 @@ bool Inventory::loadFromJson(QString path)
     }
     return json.size() == this->storage.size();
 }
+
+Inventory::Slot& Inventory::operator[](size_t index)
+{
+
+    if(index > storage.size())
+    {
+        auto temp = new Slot();
+        return *temp;
+    }
+    return storage[index];
+}
+
+size_t Inventory::size(QString type)
+{
+    if(type == "all") return storage.size();
+    QMap<Misc::typeEnum, size_t> counters;
+    counters[Misc::typeEnum::FOOD] = 0;
+    counters[Misc::typeEnum::WASH] = 0;
+    counters[Misc::typeEnum::WALK] = 0;
+    counters[Misc::typeEnum::PET] = 0;
+    counters[Misc::typeEnum::SLEEP] = 0;
+    for(size_t i = 0; i < storage.size(); i++)
+    {
+        counters[storage[i].item->type]++;
+    }
+    if(type == "food") return counters[Misc::typeEnum::FOOD];
+    if(type == "wash") return counters[Misc::typeEnum::WASH];
+    if(type == "walk") return counters[Misc::typeEnum::WALK];
+    if(type == "pet") return counters[Misc::typeEnum::PET];
+    if(type == "sleep") return counters[Misc::typeEnum::SLEEP];
+    return 0;
+}
