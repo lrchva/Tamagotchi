@@ -17,9 +17,9 @@ public:
     };
     typeEnum type;
     QString name;
-	size_t price;
-	size_t restoringPower;
-	size_t rank;
+	  size_t price;
+	  size_t restoringPower;
+	  size_t rank;
     QString toWhom;
 
     QMap<QString, int> effects;

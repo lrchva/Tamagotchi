@@ -54,6 +54,7 @@ size_t Inventory::size(QString type)
     counters[Misc::typeEnum::PET] = 0;
     counters[Misc::typeEnum::SLEEP] = 0;
     for(size_t i = 0; i < storage.size(); i++)
+
     {
         counters[storage[i].item->type]++;
     }
