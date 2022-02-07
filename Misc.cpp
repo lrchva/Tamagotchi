@@ -1,156 +1,28 @@
 #include "Misc.h"
+#define p pair<QString, Misc::typeEnum>
 
-void Food::submitEffect()
+Misc Misc::createFromJsonObjectIterator(QJsonObject::iterator source)
 {
-	//Increase satiety
-	//Increase vitality
-}
-void Food::specialEffect()
-{
-	//Increase general happiness
-	//Slightly increase attention
-	//Slightly decrease tidyness
-}
-Food::Food(const Misc& o)
-{
-    this->type = o.type;
-    this->name = o.name;
-    this->price = o.price;
-    this->restoringPower = o.restoringPower;
-    this->pathToSkin = o.pathToSkin;
-    this->rank = o.rank;
-    this->toWhom = o.toWhom;
-}
-Food::Food()
-{
-    this->type = "";
-    this->name = "";
-    this->price = 0;
-    this->restoringPower = 0;
-    this->pathToSkin = "";
-    this->rank = 0;
-}
-
-void WashMisc::submitEffect()
-{
-	//Increase tidyness
-	//Change skin to tidy
-    //Slightly increase vitality
-}
-void WashMisc::specialEffect()
-{
-	//Increase general happiness
-	//Slightly increase attention
-}
-WashMisc::WashMisc(const Misc& misc)
-{
-    this->type = misc.type;
-    this->name = misc.name;
-    this->price = misc.price;
-    this->restoringPower= misc.restoringPower;
-    this->pathToSkin = misc.pathToSkin;
-    this->rank = misc.rank;
-    this->toWhom = misc.toWhom;
-}
-WashMisc::WashMisc()
-{
-    this->type = "";
-    this->name = "";
-    this->price = 0;
-    this->restoringPower = 0;
-    this->pathToSkin = "";
-    this->rank = 0;
-}
-
-void WalkMisc::submitEffect()
-{
-	//Increase activity
-	//Decrease tidyness
-	//Decrease satiety
-	//Decrease vitality
-}
-void WalkMisc::specialEffect()
-{
-	//Increase general happiness
-	//Slightly increase attention
-}
-WalkMisc::WalkMisc(const Misc& misc)
-{
-    this->type = misc.type;
-    this->name = misc.name;
-    this->price = misc.price;
-    this->restoringPower= misc.restoringPower;
-    this->pathToSkin = misc.pathToSkin;
-    this->rank = misc.rank;
-    this->toWhom = misc.toWhom;
-}
-WalkMisc::WalkMisc()
-{
-    this->type = "";
-    this->name = "";
-    this->price = 0;
-    this->restoringPower = 0;
-    this->pathToSkin = "";
-    this->rank = 0;
-}
-
-void PetMisc::submitEffect()
-{
-	//Greatly increase attention
-	//Slightly increase vitality
-	//Slightly decrease activity
-}
-void PetMisc::specialEffect()
-{
-	//Increase general happiness
-}
-PetMisc::PetMisc(const Misc& misc)
-{
-    this->type = misc.type;
-    this->name = misc.name;
-    this->price = misc.price;
-    this->restoringPower= misc.restoringPower;
-    this->pathToSkin = misc.pathToSkin;
-    this->rank = misc.rank;
-    this->toWhom = misc.toWhom;
-}
-PetMisc::PetMisc()
-{
-    this->type = "";
-    this->name = "";
-    this->price = 0;
-    this->restoringPower = 0;
-    this->pathToSkin = "";
-    this->rank = 0;
-}
-
-void SleepMisc::submitEffect()
-{
-	//Greatly increase vitality
-	//Decrease satiety
-	//Slightly decrease attention
-	//Decrease activity
-}
-void SleepMisc::specialEffect()
-{
-	//Increase general happiness
-}
-SleepMisc::SleepMisc(const Misc& misc)
-{
-    this->type = misc.type;
-    this->name = misc.name;
-    this->price = misc.price;
-    this->restoringPower= misc.restoringPower;
-    this->pathToSkin = misc.pathToSkin;
-    this->rank = misc.rank;
-    this->toWhom = misc.toWhom;
-}
-SleepMisc::SleepMisc()
-{
-    this->type = "";
-    this->name = "";
-    this->price = 0;
-    this->restoringPower = 0;
-    this->pathToSkin = "";
-    this->rank = 0;
+    Misc item;
+    item.name = source.key();
+    item.toWhom = source.value().toObject()["toWhom"].toString();
+    item.price = source.value().toObject()["price"].toDouble();
+    item.restoringPower = source.value().toObject()["restoringPower"].toDouble();
+    item.rank = source.value().toObject()["rank"].toDouble();
+    QMap<QString, Misc::typeEnum> typeDict =
+    {
+        p("Food", Misc::typeEnum::FOOD),
+        p("Walk", Misc::typeEnum::WALK),
+        p("Wash", Misc::typeEnum::WASH),
+        p("Walk", Misc::typeEnum::WALK),
+        p("Pet", Misc::typeEnum::PET),
+        p("Sleep", Misc::typeEnum::SLEEP),
+    };
+    item.type = typeDict[source.value().toObject()["type"].toString()];
+    auto temp_effs = source.value().toObject()["effects"].toObject();
+    for(auto it = temp_effs.begin(); it != temp_effs.end(); it++)
+    {
+        item.effects[it.key()] = it.value().toDouble();
+    }
+    return item;
 }

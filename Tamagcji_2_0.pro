@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     Misc.cpp \
+    animal.cpp \
     animalwindow.cpp \
     inventory.cpp \
     main.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     Misc.h \
+    animal.h \
     animalwindow.h \
     inventory.h \
     mainwindow.h \
