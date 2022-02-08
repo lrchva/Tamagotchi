@@ -40,7 +40,7 @@
 			this.misc_count_nud = new System.Windows.Forms.NumericUpDown();
 			this.label3 = new System.Windows.Forms.Label();
 			this.misc_hungerEffect_nud = new System.Windows.Forms.NumericUpDown();
-			this.misc_wasEffect_nud = new System.Windows.Forms.NumericUpDown();
+			this.misc_washEffect_nud = new System.Windows.Forms.NumericUpDown();
 			this.misc_petEffect_nud = new System.Windows.Forms.NumericUpDown();
 			this.misc_walkEffect_nud = new System.Windows.Forms.NumericUpDown();
 			this.misc_sleepEffect_nud = new System.Windows.Forms.NumericUpDown();
@@ -74,15 +74,17 @@
 			this.animal_level_nud = new System.Windows.Forms.NumericUpDown();
 			this.label22 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.animal_setDefault_button = new System.Windows.Forms.Button();
 			this.animal_pathToSkin_button = new System.Windows.Forms.Button();
 			this.animal_pathToSkin_label = new System.Windows.Forms.Label();
 			this.label23 = new System.Windows.Forms.Label();
+			this.misc_name_tb = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.misc_price_nud)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_rank_nud)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_count_nud)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_hungerEffect_nud)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.misc_wasEffect_nud)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.misc_washEffect_nud)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_petEffect_nud)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_walkEffect_nud)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_sleepEffect_nud)).BeginInit();
@@ -117,7 +119,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(376, 82);
+			this.label1.Location = new System.Drawing.Point(376, 104);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(33, 15);
 			this.label1.TabIndex = 3;
@@ -132,14 +134,14 @@
             "Walk",
             "Pet",
             "Sleep"});
-			this.misc_type_cb.Location = new System.Drawing.Point(415, 79);
+			this.misc_type_cb.Location = new System.Drawing.Point(415, 101);
 			this.misc_type_cb.Name = "misc_type_cb";
 			this.misc_type_cb.Size = new System.Drawing.Size(144, 23);
 			this.misc_type_cb.TabIndex = 4;
 			// 
 			// misc_price_nud
 			// 
-			this.misc_price_nud.Location = new System.Drawing.Point(415, 108);
+			this.misc_price_nud.Location = new System.Drawing.Point(415, 130);
 			this.misc_price_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -151,7 +153,7 @@
 			// 
 			// misc_pathToSkin_button
 			// 
-			this.misc_pathToSkin_button.Location = new System.Drawing.Point(567, 132);
+			this.misc_pathToSkin_button.Location = new System.Drawing.Point(567, 154);
 			this.misc_pathToSkin_button.Name = "misc_pathToSkin_button";
 			this.misc_pathToSkin_button.Size = new System.Drawing.Size(75, 23);
 			this.misc_pathToSkin_button.TabIndex = 8;
@@ -161,7 +163,7 @@
 			// misc_pathToSkin_label
 			// 
 			this.misc_pathToSkin_label.AutoSize = true;
-			this.misc_pathToSkin_label.Location = new System.Drawing.Point(415, 136);
+			this.misc_pathToSkin_label.Location = new System.Drawing.Point(415, 158);
 			this.misc_pathToSkin_label.MaximumSize = new System.Drawing.Size(144, 0);
 			this.misc_pathToSkin_label.Name = "misc_pathToSkin_label";
 			this.misc_pathToSkin_label.Size = new System.Drawing.Size(94, 15);
@@ -170,7 +172,7 @@
 			// 
 			// misc_rank_nud
 			// 
-			this.misc_rank_nud.Location = new System.Drawing.Point(415, 158);
+			this.misc_rank_nud.Location = new System.Drawing.Point(415, 180);
 			this.misc_rank_nud.Minimum = new decimal(new int[] {
             1,
             0,
@@ -187,14 +189,14 @@
 			// 
 			// misc_toWhom_tb
 			// 
-			this.misc_toWhom_tb.Location = new System.Drawing.Point(415, 187);
+			this.misc_toWhom_tb.Location = new System.Drawing.Point(415, 209);
 			this.misc_toWhom_tb.Name = "misc_toWhom_tb";
 			this.misc_toWhom_tb.Size = new System.Drawing.Size(144, 23);
 			this.misc_toWhom_tb.TabIndex = 11;
 			// 
 			// misc_count_nud
 			// 
-			this.misc_count_nud.Location = new System.Drawing.Point(415, 216);
+			this.misc_count_nud.Location = new System.Drawing.Point(415, 238);
 			this.misc_count_nud.Name = "misc_count_nud";
 			this.misc_count_nud.Size = new System.Drawing.Size(144, 23);
 			this.misc_count_nud.TabIndex = 12;
@@ -202,7 +204,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(463, 251);
+			this.label3.Location = new System.Drawing.Point(463, 273);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(46, 15);
 			this.label3.TabIndex = 13;
@@ -210,7 +212,7 @@
 			// 
 			// misc_hungerEffect_nud
 			// 
-			this.misc_hungerEffect_nud.Location = new System.Drawing.Point(415, 270);
+			this.misc_hungerEffect_nud.Location = new System.Drawing.Point(415, 292);
 			this.misc_hungerEffect_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -225,26 +227,26 @@
 			this.misc_hungerEffect_nud.Size = new System.Drawing.Size(144, 23);
 			this.misc_hungerEffect_nud.TabIndex = 14;
 			// 
-			// misc_wasEffect_nud
+			// misc_washEffect_nud
 			// 
-			this.misc_wasEffect_nud.Location = new System.Drawing.Point(415, 298);
-			this.misc_wasEffect_nud.Maximum = new decimal(new int[] {
+			this.misc_washEffect_nud.Location = new System.Drawing.Point(415, 320);
+			this.misc_washEffect_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
-			this.misc_wasEffect_nud.Minimum = new decimal(new int[] {
+			this.misc_washEffect_nud.Minimum = new decimal(new int[] {
             1000000000,
             0,
             0,
             -2147483648});
-			this.misc_wasEffect_nud.Name = "misc_wasEffect_nud";
-			this.misc_wasEffect_nud.Size = new System.Drawing.Size(144, 23);
-			this.misc_wasEffect_nud.TabIndex = 15;
+			this.misc_washEffect_nud.Name = "misc_washEffect_nud";
+			this.misc_washEffect_nud.Size = new System.Drawing.Size(144, 23);
+			this.misc_washEffect_nud.TabIndex = 15;
 			// 
 			// misc_petEffect_nud
 			// 
-			this.misc_petEffect_nud.Location = new System.Drawing.Point(415, 356);
+			this.misc_petEffect_nud.Location = new System.Drawing.Point(415, 378);
 			this.misc_petEffect_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -261,7 +263,7 @@
 			// 
 			// misc_walkEffect_nud
 			// 
-			this.misc_walkEffect_nud.Location = new System.Drawing.Point(415, 327);
+			this.misc_walkEffect_nud.Location = new System.Drawing.Point(415, 349);
 			this.misc_walkEffect_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -278,7 +280,7 @@
 			// 
 			// misc_sleepEffect_nud
 			// 
-			this.misc_sleepEffect_nud.Location = new System.Drawing.Point(415, 385);
+			this.misc_sleepEffect_nud.Location = new System.Drawing.Point(415, 407);
 			this.misc_sleepEffect_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -296,7 +298,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(376, 110);
+			this.label4.Location = new System.Drawing.Point(376, 132);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(35, 15);
 			this.label4.TabIndex = 19;
@@ -305,7 +307,7 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(337, 136);
+			this.label6.Location = new System.Drawing.Point(337, 158);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(72, 15);
 			this.label6.TabIndex = 21;
@@ -314,7 +316,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(374, 160);
+			this.label2.Location = new System.Drawing.Point(374, 182);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(35, 15);
 			this.label2.TabIndex = 22;
@@ -323,7 +325,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(353, 190);
+			this.label7.Location = new System.Drawing.Point(353, 212);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(58, 15);
 			this.label7.TabIndex = 23;
@@ -332,7 +334,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(369, 218);
+			this.label8.Location = new System.Drawing.Point(369, 240);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(40, 15);
 			this.label8.TabIndex = 24;
@@ -341,7 +343,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(360, 271);
+			this.label9.Location = new System.Drawing.Point(360, 293);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(49, 15);
 			this.label9.TabIndex = 25;
@@ -350,7 +352,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(372, 300);
+			this.label10.Location = new System.Drawing.Point(372, 322);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(37, 15);
 			this.label10.TabIndex = 26;
@@ -359,7 +361,7 @@
 			// label11
 			// 
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(374, 329);
+			this.label11.Location = new System.Drawing.Point(374, 351);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(35, 15);
 			this.label11.TabIndex = 27;
@@ -368,7 +370,7 @@
 			// label12
 			// 
 			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(383, 358);
+			this.label12.Location = new System.Drawing.Point(383, 380);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(26, 15);
 			this.label12.TabIndex = 28;
@@ -377,7 +379,7 @@
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(371, 387);
+			this.label13.Location = new System.Drawing.Point(371, 409);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(38, 15);
 			this.label13.TabIndex = 29;
@@ -385,7 +387,7 @@
 			// 
 			// misc_apply_button
 			// 
-			this.misc_apply_button.Location = new System.Drawing.Point(415, 414);
+			this.misc_apply_button.Location = new System.Drawing.Point(415, 436);
 			this.misc_apply_button.Name = "misc_apply_button";
 			this.misc_apply_button.Size = new System.Drawing.Size(144, 49);
 			this.misc_apply_button.TabIndex = 30;
@@ -400,6 +402,7 @@
 			this.misc_setDefault_button.TabIndex = 31;
 			this.misc_setDefault_button.Text = "Set default";
 			this.misc_setDefault_button.UseVisualStyleBackColor = true;
+			this.misc_setDefault_button.Click += new System.EventHandler(this.misc_setDefault_button_Click);
 			// 
 			// label14
 			// 
@@ -612,14 +615,15 @@
 			this.button1.Text = "Apply";
 			this.button1.UseVisualStyleBackColor = true;
 			// 
-			// button2
+			// animal_setDefault_button
 			// 
-			this.button2.Location = new System.Drawing.Point(83, 42);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(144, 23);
-			this.button2.TabIndex = 31;
-			this.button2.Text = "Set default";
-			this.button2.UseVisualStyleBackColor = true;
+			this.animal_setDefault_button.Location = new System.Drawing.Point(83, 42);
+			this.animal_setDefault_button.Name = "animal_setDefault_button";
+			this.animal_setDefault_button.Size = new System.Drawing.Size(144, 23);
+			this.animal_setDefault_button.TabIndex = 31;
+			this.animal_setDefault_button.Text = "Set default";
+			this.animal_setDefault_button.UseVisualStyleBackColor = true;
+			this.animal_setDefault_button.Click += new System.EventHandler(this.animal_setDefault_button_Click);
 			// 
 			// animal_pathToSkin_button
 			// 
@@ -649,13 +653,29 @@
 			this.label23.TabIndex = 21;
 			this.label23.Text = "Path to skin";
 			// 
+			// misc_name_tb
+			// 
+			this.misc_name_tb.Location = new System.Drawing.Point(415, 72);
+			this.misc_name_tb.Name = "misc_name_tb";
+			this.misc_name_tb.Size = new System.Drawing.Size(144, 23);
+			this.misc_name_tb.TabIndex = 11;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(369, 75);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(40, 15);
+			this.label5.TabIndex = 23;
+			this.label5.Text = "Name";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(651, 478);
+			this.ClientSize = new System.Drawing.Size(651, 504);
 			this.Controls.Add(this.button1);
-			this.Controls.Add(this.button2);
+			this.Controls.Add(this.animal_setDefault_button);
 			this.Controls.Add(this.misc_setDefault_button);
 			this.Controls.Add(this.misc_apply_button);
 			this.Controls.Add(this.label19);
@@ -670,6 +690,7 @@
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.label21);
+			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label20);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label2);
@@ -685,12 +706,13 @@
 			this.Controls.Add(this.misc_walkEffect_nud);
 			this.Controls.Add(this.animal_washChar_nud);
 			this.Controls.Add(this.animal_hungerChar_nud);
-			this.Controls.Add(this.misc_wasEffect_nud);
+			this.Controls.Add(this.misc_washEffect_nud);
 			this.Controls.Add(this.label14);
 			this.Controls.Add(this.misc_hungerEffect_nud);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.misc_count_nud);
 			this.Controls.Add(this.animal_type_tb);
+			this.Controls.Add(this.misc_name_tb);
 			this.Controls.Add(this.animal_name_tb);
 			this.Controls.Add(this.misc_toWhom_tb);
 			this.Controls.Add(this.animal_pathToSkin_label);
@@ -710,7 +732,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.misc_rank_nud)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_count_nud)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_hungerEffect_nud)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.misc_wasEffect_nud)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.misc_washEffect_nud)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_petEffect_nud)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_walkEffect_nud)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_sleepEffect_nud)).EndInit();
@@ -739,7 +761,7 @@
 		private NumericUpDown misc_count_nud;
 		private Label label3;
 		private NumericUpDown misc_hungerEffect_nud;
-		private NumericUpDown misc_wasEffect_nud;
+		private NumericUpDown misc_washEffect_nud;
 		private NumericUpDown misc_petEffect_nud;
 		private NumericUpDown misc_walkEffect_nud;
 		private NumericUpDown misc_sleepEffect_nud;
@@ -773,9 +795,11 @@
 		private NumericUpDown animal_level_nud;
 		private Label label22;
 		private Button button1;
-		private Button button2;
+		private Button animal_setDefault_button;
 		private Button animal_pathToSkin_button;
 		private Label animal_pathToSkin_label;
 		private Label label23;
+		private TextBox misc_name_tb;
+		private Label label5;
 	}
 }
