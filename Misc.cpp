@@ -7,7 +7,6 @@ Misc Misc::createFromJsonObjectIterator(QJsonObject::iterator source)
     item.name = source.key();
     item.toWhom = source.value().toObject()["toWhom"].toString();
     item.price = source.value().toObject()["price"].toDouble();
-    item.restoringPower = source.value().toObject()["restoringPower"].toDouble();
     item.rank = source.value().toObject()["rank"].toDouble();
     QMap<QString, Misc::typeEnum> typeDict =
     {
