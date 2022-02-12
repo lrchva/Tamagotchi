@@ -4,7 +4,7 @@
 		"type": "Food",
 		"price": 20,
 		"restoringPower": 20,
-		"pathToSkin": "D:\\\\Repos\\Al_Tama\\Skins\\Whiskas.png",
+                "pathToSkin": "C:\\Users\\user\\Desktop\\Tamagotchi\\Skins\\Whiskas.png",
 		"rank": 1,
 		"toWhom": "Cat",
 		"count": 11,
@@ -21,7 +21,7 @@
 		"type": "Food",
 		"price": 30,
 		"restoringPower": 25,
-		"pathToSkin": "D:\\\\Repos\\Al_Tama\\Skins\\Kitekat.png",
+                "pathToSkin": "C:\\Users\\user\\Desktop\\Tamagotchi\\Skins\\Kitekat.png",
 		"rank": 1,
 		"toWhom": "Cat",
 		"count": 5,
@@ -35,10 +35,10 @@
 
 	"Purina":
 	{
-		"type": "Food",
+                "type": "Wash",
 		"price": 50,
 		"restoringPower": 50,
-		"pathToSkin": "D:\\\\Repos\\Al_Tama\\Skins\\Purina.png",
+                "pathToSkin": "C:\\Users\\user\\Desktop\\Tamagotchi\\Skins\\Purina.png",
 		"rank": 2,
 		"toWhom": "Cat",
 		"count": 2,
