@@ -24,6 +24,7 @@ public:
     Inventory inv;
     QMap< QString, QVector<QPushButton* > > itemButtons;
     void displayInventory();
+    void displayAnimalChars();
 
 private slots:
     void on_goToShopButton_t1_clicked();

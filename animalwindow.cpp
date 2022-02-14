@@ -1,5 +1,6 @@
 #include "animalwindow.h"
 #include "ui_animalwindow.h"
+#include "animal.h"
 #include <QMessageBox>
 #include <QLabel>
 
@@ -67,6 +68,20 @@ void AnimalWindow::displayInventory()
         //Repeat for wash, walk, pet, sleep
     }
 }
+void AnimalWindow::displayAnimalChars()
+{
+    ui->tabWidget->setTabText(0, Animal::storage[0].name);
+    ui->Hunger_PB->setFixedWidth(ui->Hunger_PB->maximumWidth() *
+    ((double)Animal::storage[0].chars["hunger_current"]/Animal::storage[0].chars["hunger_max"]));
+    ui->Wash_PB->setFixedWidth(ui->Wash_PB->maximumWidth() *
+    ((double)Animal::storage[0].chars["wash_current"]/Animal::storage[0].chars["wash_max"]));
+    ui->Walk_PB->setFixedWidth(ui->Walk_PB->maximumWidth() *
+    ((double)Animal::storage[0].chars["walk_current"]/Animal::storage[0].chars["walk_max"]));
+    ui->Pet_PB->setFixedWidth(ui->Pet_PB->maximumWidth() *
+    ((double)Animal::storage[0].chars["pet_current"]/Animal::storage[0].chars["pet_max"]));
+    ui->Sleep_PB->setFixedWidth(ui->Sleep_PB->maximumWidth() *
+    ((double)Animal::storage[0].chars["sleep_current"]/Animal::storage[0].chars["sleep_max"]));
+}
 
 AnimalWindow::AnimalWindow(QWidget *parent) :
     QWidget(parent),
@@ -74,7 +89,7 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     shopWindow = new ShopWindow();
-    if(inv.loadFromJson("C:\\Users\\user\\Desktop\\Tamagotchi\\Items.json"))
+    if(inv.loadFromJson("D:\\\\Repos\\Al_Tama\\Items.json"))
     {
         QMessageBox::information(this, "Title", "Loading successfull");
     }
@@ -118,6 +133,9 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
             ui->t5_itemButton_16, ui->t5_itemButton_17, ui->t5_itemButton_18, ui->t5_itemButton_19
     };
     displayInventory();
+
+    Animal::loadFromJson("D:\\\\Repos\\Al_Tama\\Animals.json");
+    displayAnimalChars();
 }
 
 AnimalWindow::~AnimalWindow()
