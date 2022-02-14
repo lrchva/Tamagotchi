@@ -38,11 +38,23 @@ Inventory::Slot& Inventory::operator[](size_t index)
 
     if(index > storage.size())
     {
-        auto temp = new Slot();
+        Slot* temp = new Slot();
         return *temp;
     }
     return storage[index];
 }
+Inventory::Slot& Inventory::operator[](QString name)
+{
+    for(int i = 0; i < storage.size(); i++)
+    {
+        if(storage[i].item->name == name)
+        {
+            return storage[i];
+        }
+    }
+    throw std::exception();
+}
+
 
 size_t Inventory::size(QString type)
 {
@@ -64,4 +76,43 @@ size_t Inventory::size(QString type)
     if(type == "pet") return counters[Misc::typeEnum::PET];
     if(type == "sleep") return counters[Misc::typeEnum::SLEEP];
     return 0;
+}
+
+void Inventory::addItem(Misc a, size_t count)
+{
+    Slot temp;
+    temp.item = new Misc(a);
+    try
+    {
+        (*this)[a.name].count += count;
+    }
+    catch(std::exception e)
+    {
+        temp.count = count;
+        this->storage.push_back(temp);
+    }
+}
+
+void Inventory::removeItem(size_t index, size_t count)
+{
+    if(index >= this->storage.size()) throw std::exception();
+    if((*this)[index].count >= count)
+    {
+        if((*this)[index].count > count)
+        {
+           (*this)[index].count -= count;
+        }
+        else
+        {
+            auto it = this->storage.begin();
+            int i = 0;
+            while(it != this->storage.end() && i != index)
+            {
+                i++;
+                it++;
+            }
+            this->storage.erase(it);
+        }
+    }
+    else throw std::exception();
 }

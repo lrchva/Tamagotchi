@@ -91,11 +91,11 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
     shopWindow = new ShopWindow();
     if(inv.loadFromJson("D:\\\\Repos\\Al_Tama\\Items.json"))
     {
-        QMessageBox::information(this, "Title", "Loading successfull");
+        QMessageBox::information(this, "Title", "Inventory loading successfull");
     }
     else
     {
-        QMessageBox::critical(this, "Title", "Loading failed");
+        QMessageBox::critical(this, "Title", "Inventory loading failed");
     }
     itemButtons["food"] =
     {

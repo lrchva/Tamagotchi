@@ -35,7 +35,7 @@
 
 	"Purina":
 	{
-                "type": "Wash",
+	"type": "Wash",
 		"price": 50,
 		"restoringPower": 50,
                 "pathToSkin": "C:\\Users\\user\\Desktop\\Tamagotchi\\Skins\\Purina.png",
