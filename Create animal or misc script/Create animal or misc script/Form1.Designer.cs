@@ -73,13 +73,22 @@
 			this.label21 = new System.Windows.Forms.Label();
 			this.animal_level_nud = new System.Windows.Forms.NumericUpDown();
 			this.label22 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
+			this.animal_applyButton = new System.Windows.Forms.Button();
 			this.animal_setDefault_button = new System.Windows.Forms.Button();
 			this.animal_pathToSkin_button = new System.Windows.Forms.Button();
 			this.animal_pathToSkin_label = new System.Windows.Forms.Label();
 			this.label23 = new System.Windows.Forms.Label();
 			this.misc_name_tb = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
+			this.animal_jsonBrowse_button = new System.Windows.Forms.Button();
+			this.animal_jsonContent_tb = new System.Windows.Forms.TextBox();
+			this.misc_jsonBrowse_button = new System.Windows.Forms.Button();
+			this.misc_jsonContent_tb = new System.Windows.Forms.TextBox();
+			this.animal_jsonpath_label = new System.Windows.Forms.Label();
+			this.misc_json_label = new System.Windows.Forms.Label();
+			this.animal_jsonSaveButton = new System.Windows.Forms.Button();
+			this.misc_jsonSave_button = new System.Windows.Forms.Button();
+			this.generalOFD = new System.Windows.Forms.OpenFileDialog();
 			((System.ComponentModel.ISupportInitialize)(this.misc_price_nud)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_rank_nud)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_count_nud)).BeginInit();
@@ -110,7 +119,7 @@
 			// 
 			this.misc_header_label.AutoSize = true;
 			this.misc_header_label.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.misc_header_label.Location = new System.Drawing.Point(457, 12);
+			this.misc_header_label.Location = new System.Drawing.Point(675, 11);
 			this.misc_header_label.Name = "misc_header_label";
 			this.misc_header_label.Size = new System.Drawing.Size(60, 30);
 			this.misc_header_label.TabIndex = 1;
@@ -119,7 +128,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(376, 104);
+			this.label1.Location = new System.Drawing.Point(594, 103);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(33, 15);
 			this.label1.TabIndex = 3;
@@ -134,14 +143,14 @@
             "Walk",
             "Pet",
             "Sleep"});
-			this.misc_type_cb.Location = new System.Drawing.Point(415, 101);
+			this.misc_type_cb.Location = new System.Drawing.Point(633, 100);
 			this.misc_type_cb.Name = "misc_type_cb";
 			this.misc_type_cb.Size = new System.Drawing.Size(144, 23);
 			this.misc_type_cb.TabIndex = 4;
 			// 
 			// misc_price_nud
 			// 
-			this.misc_price_nud.Location = new System.Drawing.Point(415, 130);
+			this.misc_price_nud.Location = new System.Drawing.Point(633, 129);
 			this.misc_price_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -153,7 +162,7 @@
 			// 
 			// misc_pathToSkin_button
 			// 
-			this.misc_pathToSkin_button.Location = new System.Drawing.Point(567, 154);
+			this.misc_pathToSkin_button.Location = new System.Drawing.Point(785, 153);
 			this.misc_pathToSkin_button.Name = "misc_pathToSkin_button";
 			this.misc_pathToSkin_button.Size = new System.Drawing.Size(75, 23);
 			this.misc_pathToSkin_button.TabIndex = 8;
@@ -163,7 +172,7 @@
 			// misc_pathToSkin_label
 			// 
 			this.misc_pathToSkin_label.AutoSize = true;
-			this.misc_pathToSkin_label.Location = new System.Drawing.Point(415, 158);
+			this.misc_pathToSkin_label.Location = new System.Drawing.Point(633, 157);
 			this.misc_pathToSkin_label.MaximumSize = new System.Drawing.Size(144, 0);
 			this.misc_pathToSkin_label.Name = "misc_pathToSkin_label";
 			this.misc_pathToSkin_label.Size = new System.Drawing.Size(94, 15);
@@ -172,7 +181,7 @@
 			// 
 			// misc_rank_nud
 			// 
-			this.misc_rank_nud.Location = new System.Drawing.Point(415, 180);
+			this.misc_rank_nud.Location = new System.Drawing.Point(633, 179);
 			this.misc_rank_nud.Minimum = new decimal(new int[] {
             1,
             0,
@@ -189,14 +198,14 @@
 			// 
 			// misc_toWhom_tb
 			// 
-			this.misc_toWhom_tb.Location = new System.Drawing.Point(415, 209);
+			this.misc_toWhom_tb.Location = new System.Drawing.Point(633, 208);
 			this.misc_toWhom_tb.Name = "misc_toWhom_tb";
 			this.misc_toWhom_tb.Size = new System.Drawing.Size(144, 23);
 			this.misc_toWhom_tb.TabIndex = 11;
 			// 
 			// misc_count_nud
 			// 
-			this.misc_count_nud.Location = new System.Drawing.Point(415, 238);
+			this.misc_count_nud.Location = new System.Drawing.Point(633, 237);
 			this.misc_count_nud.Name = "misc_count_nud";
 			this.misc_count_nud.Size = new System.Drawing.Size(144, 23);
 			this.misc_count_nud.TabIndex = 12;
@@ -204,7 +213,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(463, 273);
+			this.label3.Location = new System.Drawing.Point(681, 272);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(46, 15);
 			this.label3.TabIndex = 13;
@@ -212,7 +221,7 @@
 			// 
 			// misc_hungerEffect_nud
 			// 
-			this.misc_hungerEffect_nud.Location = new System.Drawing.Point(415, 292);
+			this.misc_hungerEffect_nud.Location = new System.Drawing.Point(633, 291);
 			this.misc_hungerEffect_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -229,7 +238,7 @@
 			// 
 			// misc_washEffect_nud
 			// 
-			this.misc_washEffect_nud.Location = new System.Drawing.Point(415, 320);
+			this.misc_washEffect_nud.Location = new System.Drawing.Point(633, 319);
 			this.misc_washEffect_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -246,7 +255,7 @@
 			// 
 			// misc_petEffect_nud
 			// 
-			this.misc_petEffect_nud.Location = new System.Drawing.Point(415, 378);
+			this.misc_petEffect_nud.Location = new System.Drawing.Point(633, 377);
 			this.misc_petEffect_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -263,7 +272,7 @@
 			// 
 			// misc_walkEffect_nud
 			// 
-			this.misc_walkEffect_nud.Location = new System.Drawing.Point(415, 349);
+			this.misc_walkEffect_nud.Location = new System.Drawing.Point(633, 348);
 			this.misc_walkEffect_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -280,7 +289,7 @@
 			// 
 			// misc_sleepEffect_nud
 			// 
-			this.misc_sleepEffect_nud.Location = new System.Drawing.Point(415, 407);
+			this.misc_sleepEffect_nud.Location = new System.Drawing.Point(633, 406);
 			this.misc_sleepEffect_nud.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -298,7 +307,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(376, 132);
+			this.label4.Location = new System.Drawing.Point(594, 131);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(35, 15);
 			this.label4.TabIndex = 19;
@@ -307,7 +316,7 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(337, 158);
+			this.label6.Location = new System.Drawing.Point(555, 157);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(72, 15);
 			this.label6.TabIndex = 21;
@@ -316,7 +325,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(374, 182);
+			this.label2.Location = new System.Drawing.Point(592, 181);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(35, 15);
 			this.label2.TabIndex = 22;
@@ -325,7 +334,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(353, 212);
+			this.label7.Location = new System.Drawing.Point(571, 211);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(58, 15);
 			this.label7.TabIndex = 23;
@@ -334,7 +343,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(369, 240);
+			this.label8.Location = new System.Drawing.Point(587, 239);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(40, 15);
 			this.label8.TabIndex = 24;
@@ -343,7 +352,7 @@
 			// label9
 			// 
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(360, 293);
+			this.label9.Location = new System.Drawing.Point(578, 292);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(49, 15);
 			this.label9.TabIndex = 25;
@@ -352,7 +361,7 @@
 			// label10
 			// 
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(372, 322);
+			this.label10.Location = new System.Drawing.Point(590, 321);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(37, 15);
 			this.label10.TabIndex = 26;
@@ -361,7 +370,7 @@
 			// label11
 			// 
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(374, 351);
+			this.label11.Location = new System.Drawing.Point(592, 350);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(35, 15);
 			this.label11.TabIndex = 27;
@@ -370,7 +379,7 @@
 			// label12
 			// 
 			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(383, 380);
+			this.label12.Location = new System.Drawing.Point(601, 379);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(26, 15);
 			this.label12.TabIndex = 28;
@@ -379,7 +388,7 @@
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(371, 409);
+			this.label13.Location = new System.Drawing.Point(589, 408);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(38, 15);
 			this.label13.TabIndex = 29;
@@ -387,7 +396,7 @@
 			// 
 			// misc_apply_button
 			// 
-			this.misc_apply_button.Location = new System.Drawing.Point(415, 436);
+			this.misc_apply_button.Location = new System.Drawing.Point(633, 435);
 			this.misc_apply_button.Name = "misc_apply_button";
 			this.misc_apply_button.Size = new System.Drawing.Size(144, 49);
 			this.misc_apply_button.TabIndex = 30;
@@ -396,7 +405,7 @@
 			// 
 			// misc_setDefault_button
 			// 
-			this.misc_setDefault_button.Location = new System.Drawing.Point(415, 43);
+			this.misc_setDefault_button.Location = new System.Drawing.Point(633, 42);
 			this.misc_setDefault_button.Name = "misc_setDefault_button";
 			this.misc_setDefault_button.Size = new System.Drawing.Size(144, 23);
 			this.misc_setDefault_button.TabIndex = 31;
@@ -606,14 +615,15 @@
 			this.label22.TabIndex = 19;
 			this.label22.Text = "Level";
 			// 
-			// button1
+			// animal_applyButton
 			// 
-			this.button1.Location = new System.Drawing.Point(83, 354);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(144, 49);
-			this.button1.TabIndex = 32;
-			this.button1.Text = "Apply";
-			this.button1.UseVisualStyleBackColor = true;
+			this.animal_applyButton.Location = new System.Drawing.Point(83, 354);
+			this.animal_applyButton.Name = "animal_applyButton";
+			this.animal_applyButton.Size = new System.Drawing.Size(144, 49);
+			this.animal_applyButton.TabIndex = 32;
+			this.animal_applyButton.Text = "Apply";
+			this.animal_applyButton.UseVisualStyleBackColor = true;
+			this.animal_applyButton.Click += new System.EventHandler(this.animal_applyButton_Click);
 			// 
 			// animal_setDefault_button
 			// 
@@ -655,7 +665,7 @@
 			// 
 			// misc_name_tb
 			// 
-			this.misc_name_tb.Location = new System.Drawing.Point(415, 72);
+			this.misc_name_tb.Location = new System.Drawing.Point(633, 71);
 			this.misc_name_tb.Name = "misc_name_tb";
 			this.misc_name_tb.Size = new System.Drawing.Size(144, 23);
 			this.misc_name_tb.TabIndex = 11;
@@ -663,18 +673,96 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(369, 75);
+			this.label5.Location = new System.Drawing.Point(587, 74);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(40, 15);
 			this.label5.TabIndex = 23;
 			this.label5.Text = "Name";
 			// 
+			// animal_jsonBrowse_button
+			// 
+			this.animal_jsonBrowse_button.Location = new System.Drawing.Point(446, 41);
+			this.animal_jsonBrowse_button.Name = "animal_jsonBrowse_button";
+			this.animal_jsonBrowse_button.Size = new System.Drawing.Size(75, 23);
+			this.animal_jsonBrowse_button.TabIndex = 8;
+			this.animal_jsonBrowse_button.Text = "Browse...";
+			this.animal_jsonBrowse_button.UseVisualStyleBackColor = true;
+			// 
+			// animal_jsonContent_tb
+			// 
+			this.animal_jsonContent_tb.Location = new System.Drawing.Point(328, 71);
+			this.animal_jsonContent_tb.Multiline = true;
+			this.animal_jsonContent_tb.Name = "animal_jsonContent_tb";
+			this.animal_jsonContent_tb.Size = new System.Drawing.Size(193, 358);
+			this.animal_jsonContent_tb.TabIndex = 11;
+			// 
+			// misc_jsonBrowse_button
+			// 
+			this.misc_jsonBrowse_button.Location = new System.Drawing.Point(996, 41);
+			this.misc_jsonBrowse_button.Name = "misc_jsonBrowse_button";
+			this.misc_jsonBrowse_button.Size = new System.Drawing.Size(75, 23);
+			this.misc_jsonBrowse_button.TabIndex = 8;
+			this.misc_jsonBrowse_button.Text = "Browse...";
+			this.misc_jsonBrowse_button.UseVisualStyleBackColor = true;
+			// 
+			// misc_jsonContent_tb
+			// 
+			this.misc_jsonContent_tb.Location = new System.Drawing.Point(878, 71);
+			this.misc_jsonContent_tb.Multiline = true;
+			this.misc_jsonContent_tb.Name = "misc_jsonContent_tb";
+			this.misc_jsonContent_tb.Size = new System.Drawing.Size(193, 358);
+			this.misc_jsonContent_tb.TabIndex = 11;
+			// 
+			// animal_jsonpath_label
+			// 
+			this.animal_jsonpath_label.AutoSize = true;
+			this.animal_jsonpath_label.Location = new System.Drawing.Point(328, 45);
+			this.animal_jsonpath_label.MaximumSize = new System.Drawing.Size(144, 0);
+			this.animal_jsonpath_label.Name = "animal_jsonpath_label";
+			this.animal_jsonpath_label.Size = new System.Drawing.Size(94, 15);
+			this.animal_jsonpath_label.TabIndex = 9;
+			this.animal_jsonpath_label.Text = "Undefined path";
+			// 
+			// misc_json_label
+			// 
+			this.misc_json_label.AutoSize = true;
+			this.misc_json_label.Location = new System.Drawing.Point(878, 45);
+			this.misc_json_label.MaximumSize = new System.Drawing.Size(144, 0);
+			this.misc_json_label.Name = "misc_json_label";
+			this.misc_json_label.Size = new System.Drawing.Size(94, 15);
+			this.misc_json_label.TabIndex = 9;
+			this.misc_json_label.Text = "Undefined path";
+			// 
+			// animal_jsonSaveButton
+			// 
+			this.animal_jsonSaveButton.Location = new System.Drawing.Point(328, 435);
+			this.animal_jsonSaveButton.Name = "animal_jsonSaveButton";
+			this.animal_jsonSaveButton.Size = new System.Drawing.Size(193, 49);
+			this.animal_jsonSaveButton.TabIndex = 32;
+			this.animal_jsonSaveButton.Text = "Save";
+			this.animal_jsonSaveButton.UseVisualStyleBackColor = true;
+			// 
+			// misc_jsonSave_button
+			// 
+			this.misc_jsonSave_button.Location = new System.Drawing.Point(878, 435);
+			this.misc_jsonSave_button.Name = "misc_jsonSave_button";
+			this.misc_jsonSave_button.Size = new System.Drawing.Size(193, 49);
+			this.misc_jsonSave_button.TabIndex = 32;
+			this.misc_jsonSave_button.Text = "Save";
+			this.misc_jsonSave_button.UseVisualStyleBackColor = true;
+			// 
+			// generalOFD
+			// 
+			this.generalOFD.FileName = "openFileDialog1";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(651, 504);
-			this.Controls.Add(this.button1);
+			this.ClientSize = new System.Drawing.Size(1108, 504);
+			this.Controls.Add(this.misc_jsonSave_button);
+			this.Controls.Add(this.animal_jsonSaveButton);
+			this.Controls.Add(this.animal_applyButton);
 			this.Controls.Add(this.animal_setDefault_button);
 			this.Controls.Add(this.misc_setDefault_button);
 			this.Controls.Add(this.misc_apply_button);
@@ -713,10 +801,16 @@
 			this.Controls.Add(this.misc_count_nud);
 			this.Controls.Add(this.animal_type_tb);
 			this.Controls.Add(this.misc_name_tb);
+			this.Controls.Add(this.misc_jsonContent_tb);
+			this.Controls.Add(this.animal_jsonContent_tb);
 			this.Controls.Add(this.animal_name_tb);
 			this.Controls.Add(this.misc_toWhom_tb);
+			this.Controls.Add(this.misc_json_label);
+			this.Controls.Add(this.animal_jsonpath_label);
 			this.Controls.Add(this.animal_pathToSkin_label);
+			this.Controls.Add(this.misc_jsonBrowse_button);
 			this.Controls.Add(this.misc_rank_nud);
+			this.Controls.Add(this.animal_jsonBrowse_button);
 			this.Controls.Add(this.animal_pathToSkin_button);
 			this.Controls.Add(this.misc_pathToSkin_label);
 			this.Controls.Add(this.misc_pathToSkin_button);
@@ -794,12 +888,21 @@
 		private Label label21;
 		private NumericUpDown animal_level_nud;
 		private Label label22;
-		private Button button1;
+		private Button animal_applyButton;
 		private Button animal_setDefault_button;
 		private Button animal_pathToSkin_button;
 		private Label animal_pathToSkin_label;
 		private Label label23;
 		private TextBox misc_name_tb;
 		private Label label5;
+		private Button animal_jsonBrowse_button;
+		private TextBox animal_jsonContent_tb;
+		private Button misc_jsonBrowse_button;
+		private TextBox misc_jsonContent_tb;
+		private Label animal_jsonpath_label;
+		private Label misc_json_label;
+		private Button animal_jsonSaveButton;
+		private Button misc_jsonSave_button;
+		private OpenFileDialog generalOFD;
 	}
 }

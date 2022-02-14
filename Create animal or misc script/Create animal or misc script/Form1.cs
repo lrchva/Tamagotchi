@@ -1,3 +1,6 @@
+using System;
+using System.Text.Json;
+
 namespace Create_animal_or_misc_script
 {
 	public partial class Form1 : Form
@@ -34,6 +37,11 @@ namespace Create_animal_or_misc_script
 			misc_walkEffect_nud.Value = 0;
 			misc_petEffect_nud.Value = 0;
 			misc_sleepEffect_nud.Value = 0;
+		}
+
+		private void animal_applyButton_Click(object sender, EventArgs e)
+		{
+			//Creating json
 		}
 	}
 }
