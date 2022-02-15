@@ -617,6 +617,7 @@
 			// 
 			// animal_applyButton
 			// 
+			this.animal_applyButton.Enabled = false;
 			this.animal_applyButton.Location = new System.Drawing.Point(83, 354);
 			this.animal_applyButton.Name = "animal_applyButton";
 			this.animal_applyButton.Size = new System.Drawing.Size(144, 49);
@@ -643,6 +644,7 @@
 			this.animal_pathToSkin_button.TabIndex = 8;
 			this.animal_pathToSkin_button.Text = "Browse...";
 			this.animal_pathToSkin_button.UseVisualStyleBackColor = true;
+			this.animal_pathToSkin_button.Click += new System.EventHandler(this.animal_pathToSkin_button_Click);
 			// 
 			// animal_pathToSkin_label
 			// 
@@ -700,21 +702,19 @@
 			// 
 			// animal_jsonpath_label
 			// 
-			this.animal_jsonpath_label.AutoSize = true;
 			this.animal_jsonpath_label.Location = new System.Drawing.Point(328, 45);
 			this.animal_jsonpath_label.MaximumSize = new System.Drawing.Size(144, 0);
 			this.animal_jsonpath_label.Name = "animal_jsonpath_label";
-			this.animal_jsonpath_label.Size = new System.Drawing.Size(94, 15);
+			this.animal_jsonpath_label.Size = new System.Drawing.Size(110, 15);
 			this.animal_jsonpath_label.TabIndex = 9;
 			this.animal_jsonpath_label.Text = "Undefined path";
 			// 
 			// misc_json_label
 			// 
-			this.misc_json_label.AutoSize = true;
 			this.misc_json_label.Location = new System.Drawing.Point(878, 45);
 			this.misc_json_label.MaximumSize = new System.Drawing.Size(144, 0);
 			this.misc_json_label.Name = "misc_json_label";
-			this.misc_json_label.Size = new System.Drawing.Size(94, 15);
+			this.misc_json_label.Size = new System.Drawing.Size(110, 15);
 			this.misc_json_label.TabIndex = 9;
 			this.misc_json_label.Text = "Undefined path";
 			// 
@@ -745,9 +745,11 @@
 			// 
 			// animal_storageDisplay_clb
 			// 
+			this.animal_storageDisplay_clb.Enabled = false;
 			this.animal_storageDisplay_clb.FormattingEnabled = true;
 			this.animal_storageDisplay_clb.Location = new System.Drawing.Point(328, 70);
 			this.animal_storageDisplay_clb.Name = "animal_storageDisplay_clb";
+			this.animal_storageDisplay_clb.ScrollAlwaysVisible = true;
 			this.animal_storageDisplay_clb.Size = new System.Drawing.Size(193, 346);
 			this.animal_storageDisplay_clb.TabIndex = 33;
 			// 
@@ -756,6 +758,7 @@
 			this.misc_storageDisplay_clb.FormattingEnabled = true;
 			this.misc_storageDisplay_clb.Location = new System.Drawing.Point(878, 70);
 			this.misc_storageDisplay_clb.Name = "misc_storageDisplay_clb";
+			this.misc_storageDisplay_clb.ScrollAlwaysVisible = true;
 			this.misc_storageDisplay_clb.Size = new System.Drawing.Size(193, 346);
 			this.misc_storageDisplay_clb.TabIndex = 33;
 			// 

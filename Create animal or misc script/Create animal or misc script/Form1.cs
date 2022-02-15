@@ -45,6 +45,8 @@ namespace Create_animal_or_misc_script
 			[JsonInclude]
 			public string type;
 			[JsonInclude]
+			public string pathToSkin;
+			[JsonInclude]
 			public int level;
 			[JsonInclude]
 			public Dictionary<string, int> chars;
@@ -56,6 +58,7 @@ namespace Create_animal_or_misc_script
 			{
 				this.chars = new Dictionary<string, int>();
 				this.type = other.type;
+				this.pathToSkin = other.pathToSkin;
 				this.level = other.level;
 				foreach(var cur in other.chars)
 				{
@@ -63,6 +66,7 @@ namespace Create_animal_or_misc_script
 				}
 			}
 		}
+		Dictionary<string, Animal> existing_storage = new Dictionary<string, Animal>();
 		Dictionary<string, Animal> created_storage = new Dictionary<string, Animal>();
 		string animalJsonPath = "";
 		private void animal_applyButton_Click(object sender, EventArgs e)
@@ -70,6 +74,7 @@ namespace Create_animal_or_misc_script
 			Animal temp = new Animal();
 			temp.type = animal_type_tb.Text;
 			temp.level = (int)animal_level_nud.Value;
+			temp.pathToSkin = animal_pathToSkin_label.Text;
 			temp.chars.Add("hunger_max", (int)animal_hungerChar_nud.Value);
 			temp.chars.Add("hunger_current", temp.chars["hunger_max"]);
 			temp.chars.Add("wash_max", (int)animal_washChar_nud.Value);
@@ -80,7 +85,12 @@ namespace Create_animal_or_misc_script
 			temp.chars.Add("pet_current", temp.chars["pet_max"]);
 			temp.chars.Add("sleep_max", (int)animal_sleepChar_nud.Value);
 			temp.chars.Add("sleep_current", temp.chars["sleep_max"]);
-			created_storage.Add(animal_name_tb.Text, temp);
+			try
+			{
+				created_storage.Add(animal_name_tb.Text, temp);
+				animal_storageDisplay_clb.Items.Add(animal_name_tb.Text);
+			}
+			catch (Exception ex) { }			
 		}
 
 		private void animal_jsonBrowse_button_Click(object sender, EventArgs e)
@@ -88,16 +98,57 @@ namespace Create_animal_or_misc_script
 			if(generalOFD.ShowDialog() == DialogResult.OK)
 			{
 				animalJsonPath = generalOFD.FileName;
+				animal_jsonpath_label.Text = generalOFD.SafeFileName;
 				animal_jsonSaveButton.Enabled = true;
+				animal_applyButton.Enabled = true;
+
+				StreamReader sr = new StreamReader(animalJsonPath);
+				string json = sr.ReadToEnd();
+				sr.Close();
+				try
+				{
+					existing_storage = JsonSerializer.Deserialize<Dictionary<string, Animal>>(json);
+				}
+				catch (Exception ex)
+				{
+
+				}
+				foreach(var cur in existing_storage)
+				{
+					animal_storageDisplay_clb.Items.Add(cur.Key);
+					animal_storageDisplay_clb.SetItemChecked(animal_storageDisplay_clb.Items.Count - 1, true);
+				}
+			}
+			else
+			{
+				animalJsonPath = "";
+				animal_jsonpath_label.Text = "Undefined path";
+				animal_jsonSaveButton.Enabled = false;
+				animal_applyButton.Enabled = false;
 			}
 		}
 
 		private void animal_jsonSaveButton_Click(object sender, EventArgs e)
 		{
-			string json = JsonSerializer.Serialize(created_storage, new JsonSerializerOptions { WriteIndented = true, IncludeFields = true });
+			try { foreach (var cur in created_storage) existing_storage.Add(cur.Key, cur.Value); }
+			catch (Exception ex) { }
+			created_storage.Clear();
+			string json = JsonSerializer.Serialize(existing_storage, new JsonSerializerOptions { WriteIndented = true, IncludeFields = true });
 			StreamWriter sw = new StreamWriter(animalJsonPath);
 			sw.WriteLine(json);
 			sw.Close();
+			for(int i = 0; i < animal_storageDisplay_clb.Items.Count; i++)
+			{
+				animal_storageDisplay_clb.SetItemChecked(i, true);
+			}
+		}
+
+		private void animal_pathToSkin_button_Click(object sender, EventArgs e)
+		{
+			if(generalOFD.ShowDialog() == DialogResult.OK)
+			{
+				animal_pathToSkin_label.Text = generalOFD.FileName;
+			}
 		}
 	}
 }

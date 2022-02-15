@@ -1,16 +1,17 @@
 {
-  "Barsik": {
-    "type": "Cat",
+  "Doggo": {
+    "type": "Dog",
+    "pathToSkin": "Undefined path",
     "level": 1,
     "chars": {
-      "hunger_max": 2,
-      "hunger_current": 2,
+      "hunger_max": 1,
+      "hunger_current": 1,
       "wash_max": 3,
       "wash_current": 3,
       "walk_max": 1,
       "walk_current": 1,
-      "pet_max": 4,
-      "pet_current": 4,
+      "pet_max": 3,
+      "pet_current": 3,
       "sleep_max": 1,
       "sleep_current": 1
     }
