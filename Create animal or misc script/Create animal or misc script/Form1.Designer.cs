@@ -81,14 +81,14 @@
 			this.misc_name_tb = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.animal_jsonBrowse_button = new System.Windows.Forms.Button();
-			this.animal_jsonContent_tb = new System.Windows.Forms.TextBox();
 			this.misc_jsonBrowse_button = new System.Windows.Forms.Button();
-			this.misc_jsonContent_tb = new System.Windows.Forms.TextBox();
 			this.animal_jsonpath_label = new System.Windows.Forms.Label();
 			this.misc_json_label = new System.Windows.Forms.Label();
 			this.animal_jsonSaveButton = new System.Windows.Forms.Button();
 			this.misc_jsonSave_button = new System.Windows.Forms.Button();
 			this.generalOFD = new System.Windows.Forms.OpenFileDialog();
+			this.animal_storageDisplay_clb = new System.Windows.Forms.CheckedListBox();
+			this.misc_storageDisplay_clb = new System.Windows.Forms.CheckedListBox();
 			((System.ComponentModel.ISupportInitialize)(this.misc_price_nud)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_rank_nud)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.misc_count_nud)).BeginInit();
@@ -687,14 +687,7 @@
 			this.animal_jsonBrowse_button.TabIndex = 8;
 			this.animal_jsonBrowse_button.Text = "Browse...";
 			this.animal_jsonBrowse_button.UseVisualStyleBackColor = true;
-			// 
-			// animal_jsonContent_tb
-			// 
-			this.animal_jsonContent_tb.Location = new System.Drawing.Point(328, 71);
-			this.animal_jsonContent_tb.Multiline = true;
-			this.animal_jsonContent_tb.Name = "animal_jsonContent_tb";
-			this.animal_jsonContent_tb.Size = new System.Drawing.Size(193, 358);
-			this.animal_jsonContent_tb.TabIndex = 11;
+			this.animal_jsonBrowse_button.Click += new System.EventHandler(this.animal_jsonBrowse_button_Click);
 			// 
 			// misc_jsonBrowse_button
 			// 
@@ -704,14 +697,6 @@
 			this.misc_jsonBrowse_button.TabIndex = 8;
 			this.misc_jsonBrowse_button.Text = "Browse...";
 			this.misc_jsonBrowse_button.UseVisualStyleBackColor = true;
-			// 
-			// misc_jsonContent_tb
-			// 
-			this.misc_jsonContent_tb.Location = new System.Drawing.Point(878, 71);
-			this.misc_jsonContent_tb.Multiline = true;
-			this.misc_jsonContent_tb.Name = "misc_jsonContent_tb";
-			this.misc_jsonContent_tb.Size = new System.Drawing.Size(193, 358);
-			this.misc_jsonContent_tb.TabIndex = 11;
 			// 
 			// animal_jsonpath_label
 			// 
@@ -735,15 +720,18 @@
 			// 
 			// animal_jsonSaveButton
 			// 
+			this.animal_jsonSaveButton.Enabled = false;
 			this.animal_jsonSaveButton.Location = new System.Drawing.Point(328, 435);
 			this.animal_jsonSaveButton.Name = "animal_jsonSaveButton";
 			this.animal_jsonSaveButton.Size = new System.Drawing.Size(193, 49);
 			this.animal_jsonSaveButton.TabIndex = 32;
 			this.animal_jsonSaveButton.Text = "Save";
 			this.animal_jsonSaveButton.UseVisualStyleBackColor = true;
+			this.animal_jsonSaveButton.Click += new System.EventHandler(this.animal_jsonSaveButton_Click);
 			// 
 			// misc_jsonSave_button
 			// 
+			this.misc_jsonSave_button.Enabled = false;
 			this.misc_jsonSave_button.Location = new System.Drawing.Point(878, 435);
 			this.misc_jsonSave_button.Name = "misc_jsonSave_button";
 			this.misc_jsonSave_button.Size = new System.Drawing.Size(193, 49);
@@ -755,11 +743,29 @@
 			// 
 			this.generalOFD.FileName = "openFileDialog1";
 			// 
+			// animal_storageDisplay_clb
+			// 
+			this.animal_storageDisplay_clb.FormattingEnabled = true;
+			this.animal_storageDisplay_clb.Location = new System.Drawing.Point(328, 70);
+			this.animal_storageDisplay_clb.Name = "animal_storageDisplay_clb";
+			this.animal_storageDisplay_clb.Size = new System.Drawing.Size(193, 346);
+			this.animal_storageDisplay_clb.TabIndex = 33;
+			// 
+			// misc_storageDisplay_clb
+			// 
+			this.misc_storageDisplay_clb.FormattingEnabled = true;
+			this.misc_storageDisplay_clb.Location = new System.Drawing.Point(878, 70);
+			this.misc_storageDisplay_clb.Name = "misc_storageDisplay_clb";
+			this.misc_storageDisplay_clb.Size = new System.Drawing.Size(193, 346);
+			this.misc_storageDisplay_clb.TabIndex = 33;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1108, 504);
+			this.Controls.Add(this.misc_storageDisplay_clb);
+			this.Controls.Add(this.animal_storageDisplay_clb);
 			this.Controls.Add(this.misc_jsonSave_button);
 			this.Controls.Add(this.animal_jsonSaveButton);
 			this.Controls.Add(this.animal_applyButton);
@@ -801,8 +807,6 @@
 			this.Controls.Add(this.misc_count_nud);
 			this.Controls.Add(this.animal_type_tb);
 			this.Controls.Add(this.misc_name_tb);
-			this.Controls.Add(this.misc_jsonContent_tb);
-			this.Controls.Add(this.animal_jsonContent_tb);
 			this.Controls.Add(this.animal_name_tb);
 			this.Controls.Add(this.misc_toWhom_tb);
 			this.Controls.Add(this.misc_json_label);
@@ -896,13 +900,13 @@
 		private TextBox misc_name_tb;
 		private Label label5;
 		private Button animal_jsonBrowse_button;
-		private TextBox animal_jsonContent_tb;
 		private Button misc_jsonBrowse_button;
-		private TextBox misc_jsonContent_tb;
 		private Label animal_jsonpath_label;
 		private Label misc_json_label;
 		private Button animal_jsonSaveButton;
 		private Button misc_jsonSave_button;
 		private OpenFileDialog generalOFD;
+		private CheckedListBox animal_storageDisplay_clb;
+		private CheckedListBox misc_storageDisplay_clb;
 	}
 }

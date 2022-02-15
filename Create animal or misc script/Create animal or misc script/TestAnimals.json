@@ -1,0 +1,18 @@
+{
+  "Barsik": {
+    "type": "Cat",
+    "level": 1,
+    "chars": {
+      "hunger_max": 2,
+      "hunger_current": 2,
+      "wash_max": 3,
+      "wash_current": 3,
+      "walk_max": 1,
+      "walk_current": 1,
+      "pet_max": 4,
+      "pet_current": 4,
+      "sleep_max": 1,
+      "sleep_current": 1
+    }
+  }
+}
