@@ -1,20 +1,36 @@
 {
-	"Barsik":
-	{
-		"type": "Cat",
-		"level": 1,
-		"chars":
-		{
-			"hunger_max": 100,
-			"hunger_current": 80,
-			"wash_max": 100,
-			"wash_current": 73,
-			"walk_max": 100,
-			"walk_current": 61,
-			"pet_max": 100,
-			"pet_current": 80,
-			"sleep_max": 100,
-			"sleep_current": 85
-		}
-	}
+  "Cotto": {
+    "type": "Cat",
+    "pathToSkin": "C:\\Users\\Horockey\\Desktop\\472862.jpg",
+    "level": 1,
+    "chars": {
+      "hunger_max": 100,
+      "hunger_current": 100,
+      "wash_max": 100,
+      "wash_current": 100,
+      "walk_max": 100,
+      "walk_current": 100,
+      "pet_max": 100,
+      "pet_current": 100,
+      "sleep_max": 100,
+      "sleep_current": 100
+    }
+  },
+  "Baron": {
+    "type": "Dog",
+    "pathToSkin": "D:\\Repos\\Al_Tama\\Skins\\Whiskas.png",
+    "level": 1,
+    "chars": {
+      "hunger_max": 150,
+      "hunger_current": 150,
+      "wash_max": 100,
+      "wash_current": 100,
+      "walk_max": 100,
+      "walk_current": 100,
+      "pet_max": 100,
+      "pet_current": 100,
+      "sleep_max": 100,
+      "sleep_current": 100
+    }
+  }
 }

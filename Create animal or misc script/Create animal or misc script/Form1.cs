@@ -158,14 +158,16 @@ namespace Create_animal_or_misc_script
 				{
 					animal_existing_storage = JsonSerializer.Deserialize<Dictionary<string, Animal>>(json);
 				}
-				catch (Exception ex)
-				{
-
-				}
+				catch (Exception ex){}
+				animal_storageDisplay_clb.Items.Clear();
 				foreach(var cur in animal_existing_storage)
 				{
 					animal_storageDisplay_clb.Items.Add(cur.Key);
 					animal_storageDisplay_clb.SetItemChecked(animal_storageDisplay_clb.Items.Count - 1, true);
+				}
+				foreach(var cur in animal_created_storage)
+				{
+					animal_storageDisplay_clb.Items.Add(cur.Key);
 				}
 			}
 			else
@@ -213,14 +215,21 @@ namespace Create_animal_or_misc_script
 				StreamReader sr = new StreamReader(miscJsonPath);
 				string json = sr.ReadToEnd();
 				sr.Close();
-				
-				
+
+				try
+				{
 					misc_existing_storage = JsonSerializer.Deserialize<Dictionary<string, Misc>>(json);
-				
+				}
+				catch (Exception ex) { }
+				misc_storageDisplay_clb.Items.Clear();
 				foreach (var cur in misc_existing_storage)
 				{
 					misc_storageDisplay_clb.Items.Add(cur.Key);
 					misc_storageDisplay_clb.SetItemChecked(misc_storageDisplay_clb.Items.Count - 1, true);
+				}
+				foreach(var cur in misc_created_storage)
+				{
+					misc_storageDisplay_clb.Items.Add(cur.Key);
 				}
 			}
 			else
