@@ -15,6 +15,7 @@ public:
     QString name;
     QString type;
     size_t level;
+    QString pathToSkin;
     QMap<QString, size_t> chars;
 
     void takeEffects(Misc);

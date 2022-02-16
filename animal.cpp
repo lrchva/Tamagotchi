@@ -62,6 +62,7 @@ void Animal::loadFromJson(QString path)
         Animal temp;
         temp.name = it.key();
         temp.type = it.value().toObject()["type"].toString();
+        temp.pathToSkin = it.value().toObject()["pathToSkin"].toString();
         temp.level = it.value().toObject()["level"].toDouble();
         for(auto currentChar : temp.chars.keys())
         {
