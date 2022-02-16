@@ -21,9 +21,9 @@ public:
     bool saveToJson(QString path = "Inventory.json");
     Slot& operator[](size_t index);
     Slot& operator[](QString name);
-    void addItem(Misc a);
-    void removeItem(size_t index);
-    void removeItem(QString name);
+    void addItem(Misc a, size_t count);
+    void removeItem(size_t index, size_t count);
+    void removeItem(QString name, size_t count);
     size_t size(QString type);
 };
 

@@ -1,5 +1,8 @@
 #include "animal.h"
 #include <iostream>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
 Animal::Animal()
 {
     name = type = "UNDEFINED";
@@ -38,6 +41,33 @@ Animal::Animal(QString name, QString type, size_t level, QMap<QString, int> char
     catch(std::exception e)
     {
         std::cout << e.what() << std::endl;
+    }
+}
+
+QVector<Animal> Animal::storage = QVector<Animal>();
+
+void Animal::loadFromJson(QString path)
+{
+    QString val;
+    QFile fin(path);
+    if(!fin.open(QIODevice::ReadOnly | QIODevice::Text)) return;
+    val = fin.readAll();
+    fin.close();
+
+    QJsonDocument doc = QJsonDocument::fromJson(val.toUtf8());
+    QJsonObject json = doc.object();
+
+    for(auto it = json.begin(); it != json.end(); it++)
+    {
+        Animal temp;
+        temp.name = it.key();
+        temp.type = it.value().toObject()["type"].toString();
+        temp.level = it.value().toObject()["level"].toDouble();
+        for(auto currentChar : temp.chars.keys())
+        {
+            temp.chars[currentChar] = it.value().toObject()["chars"].toObject()[currentChar].toDouble();
+        }
+        Animal::storage.push_back(temp);
     }
 }
 
