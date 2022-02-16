@@ -88,6 +88,7 @@ namespace Create_animal_or_misc_script
 			animal_walkChar_nud.Value = 0;
 			animal_petChar_nud.Value = 0;
 			animal_sleepChar_nud.Value = 0;
+			animal_applyButton.Enabled = false;
 		}
 		private void misc_setDefault()
 		{
@@ -103,6 +104,7 @@ namespace Create_animal_or_misc_script
 			misc_walkEffect_nud.Value = 0;
 			misc_petEffect_nud.Value = 0;
 			misc_sleepEffect_nud.Value = 0;
+			misc_apply_button.Enabled = false;
 		}
 
 		private void animal_setDefault_button_Click(object sender, EventArgs e)
