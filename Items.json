@@ -3,7 +3,6 @@
 	{
 		"type": "Food",
 		"price": 20,
-		"restoringPower": 20,
 		"pathToSkin": "D:\\\\Repos\\Al_Tama\\Skins\\Whiskas.png",
 		"rank": 1,
 		"toWhom": "Cat",
@@ -20,7 +19,6 @@
 	{
 		"type": "Food",
 		"price": 30,
-		"restoringPower": 25,
 		"pathToSkin": "D:\\\\Repos\\Al_Tama\\Skins\\Kitekat.png",
 		"rank": 1,
 		"toWhom": "Cat",
@@ -37,7 +35,6 @@
 	{
 		"type": "Food",
 		"price": 50,
-		"restoringPower": 50,
 		"pathToSkin": "D:\\\\Repos\\Al_Tama\\Skins\\Purina.png",
 		"rank": 2,
 		"toWhom": "Cat",

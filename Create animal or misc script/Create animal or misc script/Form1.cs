@@ -11,35 +11,6 @@ namespace Create_animal_or_misc_script
 			InitializeComponent();
 		}
 
-		private void animal_setDefault_button_Click(object sender, EventArgs e)
-		{
-			animal_name_tb.Text = "";
-			animal_type_tb.Text = "";
-			animal_level_nud.Value = animal_level_nud.Minimum;
-			animal_pathToSkin_label.Text = "Undefined path";
-			animal_hungerChar_nud.Value = 0;
-			animal_washChar_nud.Value = 0;
-			animal_walkChar_nud.Value = 0;
-			animal_petChar_nud.Value = 0;
-			animal_sleepChar_nud.Value = 0;
-		}
-
-		private void misc_setDefault_button_Click(object sender, EventArgs e)
-		{
-			misc_name_tb.Text = "";
-			misc_type_cb.SelectedItem = null;
-			misc_price_nud.Value = 0;
-			misc_pathToSkin_label.Text = "Undefined path";
-			misc_rank_nud.Value = misc_rank_nud.Minimum;
-			misc_toWhom_tb.Text = "";
-			misc_count_nud.Value = 0;
-			misc_hungerEffect_nud.Value = 0;
-			misc_washEffect_nud.Value = 0;
-			misc_walkEffect_nud.Value = 0;
-			misc_petEffect_nud.Value = 0;
-			misc_sleepEffect_nud.Value = 0;
-		}
-
 		class Animal
 		{
 			[JsonInclude]
@@ -60,15 +31,90 @@ namespace Create_animal_or_misc_script
 				this.type = other.type;
 				this.pathToSkin = other.pathToSkin;
 				this.level = other.level;
-				foreach(var cur in other.chars)
+				foreach (var cur in other.chars)
 				{
 					this.chars.Add(cur.Key, cur.Value);
 				}
 			}
 		}
-		Dictionary<string, Animal> existing_storage = new Dictionary<string, Animal>();
-		Dictionary<string, Animal> created_storage = new Dictionary<string, Animal>();
+		Dictionary<string, Animal> animal_existing_storage = new Dictionary<string, Animal>();
+		Dictionary<string, Animal> animal_created_storage = new Dictionary<string, Animal>();
 		string animalJsonPath = "";
+
+		class Misc
+		{
+			[JsonInclude]
+			public string type;
+			[JsonInclude]
+			public int price;
+			[JsonInclude]
+			public string pathToSkin;
+			[JsonInclude]
+			public int rank;
+			[JsonInclude]
+			public string toWhom;
+			[JsonInclude]
+			public int count;
+			[JsonInclude]
+			public Dictionary<string, int> effects;
+			public Misc()
+			{
+				effects = new Dictionary<string, int>();
+			}
+			public Misc(Misc other)
+			{
+				effects = new Dictionary<string, int>();
+				this.type = other.type;
+				this.price = other.price;
+				this.pathToSkin=other.pathToSkin;
+				this.rank = other.rank;
+				this.count = other.count;
+				this.toWhom = other.toWhom;
+				foreach (var cur in other.effects) this.effects.Add(cur.Key, cur.Value);
+			}
+		}
+		Dictionary<string, Misc> misc_existing_storage = new Dictionary<string, Misc>();
+		Dictionary<string, Misc> misc_created_storage = new Dictionary<string, Misc>();
+		string miscJsonPath = "";
+
+		private void animal_setDefault()
+		{
+			animal_name_tb.Text = "";
+			animal_type_tb.Text = "";
+			animal_level_nud.Value = animal_level_nud.Minimum;
+			animal_pathToSkin_label.Text = "Undefined path";
+			animal_hungerChar_nud.Value = 0;
+			animal_washChar_nud.Value = 0;
+			animal_walkChar_nud.Value = 0;
+			animal_petChar_nud.Value = 0;
+			animal_sleepChar_nud.Value = 0;
+		}
+		private void misc_setDefault()
+		{
+			misc_name_tb.Text = "";
+			misc_type_cb.SelectedItem = null;
+			misc_price_nud.Value = 0;
+			misc_pathToSkin_label.Text = "Undefined path";
+			misc_rank_nud.Value = misc_rank_nud.Minimum;
+			misc_toWhom_tb.Text = "";
+			misc_count_nud.Value = 0;
+			misc_hungerEffect_nud.Value = 0;
+			misc_washEffect_nud.Value = 0;
+			misc_walkEffect_nud.Value = 0;
+			misc_petEffect_nud.Value = 0;
+			misc_sleepEffect_nud.Value = 0;
+		}
+
+		private void animal_setDefault_button_Click(object sender, EventArgs e)
+		{
+			animal_setDefault();
+		}
+
+		private void misc_setDefault_button_Click(object sender, EventArgs e)
+		{
+			misc_setDefault();
+		}
+
 		private void animal_applyButton_Click(object sender, EventArgs e)
 		{
 			Animal temp = new Animal();
@@ -87,10 +133,11 @@ namespace Create_animal_or_misc_script
 			temp.chars.Add("sleep_current", temp.chars["sleep_max"]);
 			try
 			{
-				created_storage.Add(animal_name_tb.Text, temp);
+				animal_created_storage.Add(animal_name_tb.Text, temp);
 				animal_storageDisplay_clb.Items.Add(animal_name_tb.Text);
+				animal_setDefault();
 			}
-			catch (Exception ex) { }			
+			catch (Exception ex) { }
 		}
 
 		private void animal_jsonBrowse_button_Click(object sender, EventArgs e)
@@ -107,13 +154,13 @@ namespace Create_animal_or_misc_script
 				sr.Close();
 				try
 				{
-					existing_storage = JsonSerializer.Deserialize<Dictionary<string, Animal>>(json);
+					animal_existing_storage = JsonSerializer.Deserialize<Dictionary<string, Animal>>(json);
 				}
 				catch (Exception ex)
 				{
 
 				}
-				foreach(var cur in existing_storage)
+				foreach(var cur in animal_existing_storage)
 				{
 					animal_storageDisplay_clb.Items.Add(cur.Key);
 					animal_storageDisplay_clb.SetItemChecked(animal_storageDisplay_clb.Items.Count - 1, true);
@@ -130,10 +177,10 @@ namespace Create_animal_or_misc_script
 
 		private void animal_jsonSaveButton_Click(object sender, EventArgs e)
 		{
-			try { foreach (var cur in created_storage) existing_storage.Add(cur.Key, cur.Value); }
+			try { foreach (var cur in animal_created_storage) animal_existing_storage.Add(cur.Key, cur.Value); }
 			catch (Exception ex) { }
-			created_storage.Clear();
-			string json = JsonSerializer.Serialize(existing_storage, new JsonSerializerOptions { WriteIndented = true, IncludeFields = true });
+			animal_created_storage.Clear();
+			string json = JsonSerializer.Serialize(animal_existing_storage, new JsonSerializerOptions { WriteIndented = true, IncludeFields = true });
 			StreamWriter sw = new StreamWriter(animalJsonPath);
 			sw.WriteLine(json);
 			sw.Close();
@@ -149,6 +196,68 @@ namespace Create_animal_or_misc_script
 			{
 				animal_pathToSkin_label.Text = generalOFD.FileName;
 			}
+		}
+
+		private void misc_jsonBrowse_button_Click(object sender, EventArgs e)
+		{
+			if (generalOFD.ShowDialog() == DialogResult.OK)
+			{
+				miscJsonPath = generalOFD.FileName;
+				misc_jsonpath_label.Text = generalOFD.SafeFileName;
+				misc_jsonSave_button.Enabled = true;
+				misc_apply_button.Enabled = true;
+
+				StreamReader sr = new StreamReader(miscJsonPath);
+				string json = sr.ReadToEnd();
+				sr.Close();
+				
+				
+					misc_existing_storage = JsonSerializer.Deserialize<Dictionary<string, Misc>>(json);
+				
+				foreach (var cur in misc_existing_storage)
+				{
+					misc_storageDisplay_clb.Items.Add(cur.Key);
+					misc_storageDisplay_clb.SetItemChecked(misc_storageDisplay_clb.Items.Count - 1, true);
+				}
+			}
+			else
+			{
+				miscJsonPath = "";
+				misc_jsonpath_label.Text = "Undefined path";
+				misc_jsonSave_button.Enabled = false;
+				misc_apply_button.Enabled = false;
+			}
+		}
+
+		private void misc_pathToSkin_button_Click(object sender, EventArgs e)
+		{
+			if (generalOFD.ShowDialog() == DialogResult.OK)
+			{
+				misc_pathToSkin_label.Text = generalOFD.FileName;
+			}
+		}
+
+		private void misc_apply_button_Click(object sender, EventArgs e)
+		{
+			Misc temp = new Misc();
+			temp.type = misc_type_cb.Text;
+			temp.price = (int)misc_price_nud.Value;
+			temp.pathToSkin = misc_pathToSkin_label.Text;
+			temp.rank = (int)misc_rank_nud.Value;
+			temp.toWhom = misc_toWhom_tb.Text;
+			temp.count = (int)misc_count_nud.Value;
+			temp.effects.Add("hunger_current", (int)misc_hungerEffect_nud.Value);
+			temp.effects.Add("wash_current", (int)misc_washEffect_nud.Value);
+			temp.effects.Add("walk_current", (int)misc_walkEffect_nud.Value);
+			temp.effects.Add("pet_current", (int)misc_petEffect_nud.Value);
+			temp.effects.Add("sleep_current", (int)misc_sleepEffect_nud.Value);
+			try
+			{
+				misc_created_storage.Add(misc_name_tb.Text, temp);
+				misc_storageDisplay_clb.Items.Add(misc_name_tb.Text);
+				misc_setDefault();
+			}
+			catch (Exception ex) { }
 		}
 	}
 }
