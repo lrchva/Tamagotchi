@@ -147,7 +147,7 @@ namespace Create_animal_or_misc_script
 				animalJsonPath = generalOFD.FileName;
 				animal_jsonpath_label.Text = generalOFD.SafeFileName;
 				animal_jsonSaveButton.Enabled = true;
-				animal_applyButton.Enabled = true;
+				animal_applyButton.Enabled = animal_pathToSkin_label.Text != "Undefined path";
 
 				StreamReader sr = new StreamReader(animalJsonPath);
 				string json = sr.ReadToEnd();
@@ -195,6 +195,7 @@ namespace Create_animal_or_misc_script
 			if(generalOFD.ShowDialog() == DialogResult.OK)
 			{
 				animal_pathToSkin_label.Text = generalOFD.FileName;
+				animal_applyButton.Enabled = animal_jsonpath_label.Text != "Undefined path";
 			}
 		}
 
@@ -205,7 +206,7 @@ namespace Create_animal_or_misc_script
 				miscJsonPath = generalOFD.FileName;
 				misc_jsonpath_label.Text = generalOFD.SafeFileName;
 				misc_jsonSave_button.Enabled = true;
-				misc_apply_button.Enabled = true;
+				misc_apply_button.Enabled = misc_pathToSkin_label.Text != "Undefined path";
 
 				StreamReader sr = new StreamReader(miscJsonPath);
 				string json = sr.ReadToEnd();
@@ -234,6 +235,7 @@ namespace Create_animal_or_misc_script
 			if (generalOFD.ShowDialog() == DialogResult.OK)
 			{
 				misc_pathToSkin_label.Text = generalOFD.FileName;
+				misc_apply_button.Enabled = misc_jsonpath_label.Text != "Undefined path";
 			}
 		}
 
@@ -258,6 +260,21 @@ namespace Create_animal_or_misc_script
 				misc_setDefault();
 			}
 			catch (Exception ex) { }
+		}
+
+		private void misc_jsonSave_button_Click(object sender, EventArgs e)
+		{
+			try { foreach (var cur in misc_created_storage) misc_existing_storage.Add(cur.Key, cur.Value); }
+			catch (Exception ex) { }
+			misc_created_storage.Clear();
+			string json = JsonSerializer.Serialize(misc_existing_storage, new JsonSerializerOptions { WriteIndented = true, IncludeFields = true });
+			StreamWriter sw = new StreamWriter(miscJsonPath);
+			sw.WriteLine(json);
+			sw.Close();
+			for (int i = 0; i < misc_storageDisplay_clb.Items.Count; i++)
+			{
+				misc_storageDisplay_clb.SetItemChecked(i, true);
+			}
 		}
 	}
 }

@@ -742,6 +742,7 @@
 			this.misc_jsonSave_button.TabIndex = 32;
 			this.misc_jsonSave_button.Text = "Save";
 			this.misc_jsonSave_button.UseVisualStyleBackColor = true;
+			this.misc_jsonSave_button.Click += new System.EventHandler(this.misc_jsonSave_button_Click);
 			// 
 			// generalOFD
 			// 
