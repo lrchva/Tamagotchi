@@ -1,0 +1,17 @@
+{
+  "Black collar": {
+    "type": "Walk",
+    "price": 10,
+    "pathToSkin": "C:\\Users\\user\\Desktop\\Tamagotchi\\Skins for tamagotchi project \\Walk\\IMG_2235.WEBP",
+    "rank": 1,
+    "toWhom": "Dog",
+    "count": 100,
+    "effects": {
+      "hunger_current": -5,
+      "wash_current": -15,
+      "walk_current": 30,
+      "pet_current": 0,
+      "sleep_current": -5
+    }
+  }
+}

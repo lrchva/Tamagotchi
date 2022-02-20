@@ -64,8 +64,6 @@ void AnimalWindow::displayInventory()
             itemButtons["pet"][k5]->setIcon(QIcon(inv[i].pathToSkin));
             k5++;
         }
-
-        //Repeat for wash, walk, pet, sleep
     }
 }
 void AnimalWindow::displayAnimalChars()

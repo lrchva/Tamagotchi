@@ -116,3 +116,36 @@ void Inventory::removeItem(size_t index, size_t count)
     }
     else throw std::exception();
 }
+
+void Inventory::removeItem(QString name, size_t count)
+{
+    int index = -1;
+    for(int i = 0; i < storage.size(); i++)
+    {
+        if(storage[i].item->name == name)
+        {
+            index = i;
+        }
+    }
+    if (index == -1) throw std::exception();
+    if(index >= this->storage.size()) throw std::exception();
+    if((*this)[index].count >= count)
+    {
+        if((*this)[index].count > count)
+        {
+           (*this)[index].count -= count;
+        }
+        else
+        {
+            auto it = this->storage.begin();
+            int i = 0;
+            while(it != this->storage.end() && i != index)
+            {
+                i++;
+                it++;
+            }
+            this->storage.erase(it);
+        }
+    }
+    else throw std::exception();
+}
