@@ -1,0 +1,53 @@
+{
+  "Doggo": {
+    "type": "Dog",
+    "pathToSkin": "Undefined path",
+    "level": 1,
+    "chars": {
+      "hunger_max": 1,
+      "hunger_current": 1,
+      "wash_max": 3,
+      "wash_current": 3,
+      "walk_max": 1,
+      "walk_current": 1,
+      "pet_max": 3,
+      "pet_current": 3,
+      "sleep_max": 1,
+      "sleep_current": 1
+    }
+  },
+  "Barsik": {
+    "type": "Cat",
+    "pathToSkin": "C:\\Users\\user\\Desktop\\Tamagotchi\\Skins for tamagotchi project \\Cat.PNG",
+    "level": 1,
+    "chars": {
+      "hunger_max": 20,
+      "hunger_current": 20,
+      "wash_max": 50,
+      "wash_current": 50,
+      "walk_max": 40,
+      "walk_current": 40,
+      "pet_max": 70,
+      "pet_current": 70,
+      "sleep_max": 55,
+      "sleep_current": 55
+    }
+  },
+  "Bobik": {
+    "type": "Dog",
+    "pathToSkin": "C:\\Users\\user\\Desktop\\Tamagotchi\\Skins for tamagotchi project \\Dog.JPG",
+    "level": 1,
+    "chars": {
+      "hunger_max": 40,
+      "hunger_current": 40,
+      "wash_max": 30,
+      "wash_current": 30,
+      "walk_max": 50,
+      "walk_current": 50,
+      "pet_max": 45,
+      "pet_current": 45,
+      "sleep_max": 70,
+      "sleep_current": 70
+    }
+  }
+}

@@ -28,6 +28,7 @@ public:
 
 private slots:
     void on_goToShopButton_t1_clicked();
+    void on_t1_saveButton_clicked();
 
 private:
     Ui::AnimalWindow *ui;

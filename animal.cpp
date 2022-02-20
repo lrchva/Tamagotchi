@@ -46,11 +46,11 @@ Animal::Animal(QString name, QString type, size_t level, QMap<QString, int> char
 
 QVector<Animal> Animal::storage = QVector<Animal>();
 
-void Animal::loadFromJson(QString path)
+bool Animal::loadFromJson(QString path)
 {
     QString val;
     QFile fin(path);
-    if(!fin.open(QIODevice::ReadOnly | QIODevice::Text)) return;
+    if(!fin.open(QIODevice::ReadOnly | QIODevice::Text)) return false;
     val = fin.readAll();
     fin.close();
 
@@ -70,6 +70,7 @@ void Animal::loadFromJson(QString path)
         }
         Animal::storage.push_back(temp);
     }
+    return true;
 }
 
 void Animal::takeEffects(Misc source)

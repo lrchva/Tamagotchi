@@ -33,6 +33,47 @@ bool Inventory::loadFromJson(QString path)
     return json.size() == this->storage.size();
 }
 
+bool Inventory::saveToJson(QString path)
+{
+    QJsonObject json;
+    for(auto it = this->storage.begin(); it != this->storage.end(); it++)
+    {
+        QString type;
+        switch(it->item->type)
+        {
+        case 0: type = "Food"; break;
+        case 1: type = "Wash"; break;
+        case 2: type = "Walk"; break;
+        case 3: type = "Pet"; break;
+        case 4: type = "Sleep"; break;
+        default: type = "Unknown"; break;
+        }
+
+        QJsonObject curSlot;
+        curSlot.insert("type", type);
+        curSlot.insert("price", QJsonValue::fromVariant(it->item->price));
+        curSlot.insert("pathToSkin", it->pathToSkin);
+        curSlot.insert("rank", QJsonValue::fromVariant(it->item->rank));
+        curSlot.insert("toWhom", it->item->toWhom);
+        curSlot.insert("count", QJsonValue::fromVariant(it->count));
+        QJsonObject effs;
+        effs.insert("hunger_current", QJsonValue::fromVariant(it->item->effects["hunger_current"]));
+        effs.insert("wash_current", QJsonValue::fromVariant(it->item->effects["wash_current"]));
+        effs.insert("walk_current", QJsonValue::fromVariant(it->item->effects["walk_current"]));
+        effs.insert("pet_current", QJsonValue::fromVariant(it->item->effects["pet_current"]));
+        effs.insert("sleep_current", QJsonValue::fromVariant(it->item->effects["sleep_current"]));
+        curSlot.insert("effects", effs);
+
+        json.insert(it->item->name, curSlot);
+    }
+    QJsonDocument doc(json);
+    QFile fout(path);
+    if(!fout.open(QIODevice::WriteOnly | QIODevice::Text)) return false;
+    fout.write(doc.toJson());
+    fout.close();
+    return true;
+}
+
 Inventory::Slot& Inventory::operator[](size_t index)
 {
 

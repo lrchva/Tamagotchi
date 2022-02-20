@@ -87,14 +87,7 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     shopWindow = new ShopWindow();
-    if(inv.loadFromJson("D:\\\\Repos\\Al_Tama\\Items.json"))
-    {
-        QMessageBox::information(this, "Title", "Inventory loading successfull");
-    }
-    else
-    {
-        QMessageBox::critical(this, "Title", "Inventory loading failed");
-    }
+
     itemButtons["food"] =
     {
             ui->t1_itemButton_0, ui->t1_itemButton_1, ui->t1_itemButton_2, ui->t1_itemButton_3, ui->t1_itemButton_4, ui->t1_itemButton_5,
@@ -130,10 +123,26 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
             ui->t5_itemButton_11, ui->t5_itemButton_12, ui->t5_itemButton_13, ui->t5_itemButton_14, ui->t5_itemButton_15,
             ui->t5_itemButton_16, ui->t5_itemButton_17, ui->t5_itemButton_18, ui->t5_itemButton_19
     };
-    displayInventory();
 
-    Animal::loadFromJson("D:\\\\Repos\\Al_Tama\\Animals.json");
-    displayAnimalChars();
+    if(inv.loadFromJson("D:\\\\Repos\\Al_Tama\\Items.json"))
+    {
+        QMessageBox::information(this, "Title", "Inventory loading successfull");
+        displayInventory();
+    }
+    else
+    {
+        QMessageBox::critical(this, "Title", "Inventory loading failed");
+    }
+
+    if(Animal::loadFromJson("D:\\\\Repos\\Al_Tama\\Animals.json"))
+    {
+        QMessageBox::information(this, "Title", "Animal loading successfull");
+        displayAnimalChars();
+    }
+    else
+    {
+         QMessageBox::critical(this, "Title", "Animal loading failed");
+    }
 }
 
 AnimalWindow::~AnimalWindow()
@@ -145,3 +154,16 @@ void AnimalWindow::on_goToShopButton_t1_clicked()
 {
     shopWindow->show();
 }
+
+void AnimalWindow::on_t1_saveButton_clicked()
+{
+    if(inv.saveToJson("Items.json"))
+    {
+         QMessageBox::information(this, "Title", "Inventory saving successfull");
+    }
+    else
+    {
+         QMessageBox::critical(this, "Title", "Inventory saving failed");
+    }
+}
+
