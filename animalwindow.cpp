@@ -42,32 +42,38 @@ void AnimalWindow::displayInventory()
         if(inv[i].item->type == Misc::typeEnum::FOOD)
         {
             itemButtons["food"][k1]->setIcon(QIcon(inv[i].pathToSkin));
+            inv[i].item->button = itemButtons["food"][k1];
             k1++;
         }
         if(inv[i].item->type == Misc::typeEnum::WASH)
         {
             itemButtons["wash"][k2]->setIcon(QIcon(inv[i].pathToSkin));
+            inv[i].item->button = itemButtons["wash"][k2];
             k2++;
         }
         if(inv[i].item->type == Misc::typeEnum::WALK)
         {
             itemButtons["walk"][k3]->setIcon(QIcon(inv[i].pathToSkin));
+            inv[i].item->button = itemButtons["walk"][k3];
             k3++;
         }
         if(inv[i].item->type == Misc::typeEnum::SLEEP)
         {
             itemButtons["sleep"][k4]->setIcon(QIcon(inv[i].pathToSkin));
+            inv[i].item->button = itemButtons["sleep"][k4];
             k4++;
         }
         if(inv[i].item->type == Misc::typeEnum::PET)
         {
             itemButtons["pet"][k5]->setIcon(QIcon(inv[i].pathToSkin));
+            inv[i].item->button = itemButtons["pet"][k5];
             k5++;
         }
     }
 }
 void AnimalWindow::displayAnimalChars()
 {
+    //REDO
     ui->tabWidget->setTabText(0, Animal::storage[0].name);
     ui->Hunger_PB->setFixedWidth(ui->Hunger_PB->maximumWidth() *
     ((double)Animal::storage[0].chars["hunger_current"]/Animal::storage[0].chars["hunger_max"]));
@@ -81,12 +87,38 @@ void AnimalWindow::displayAnimalChars()
     ((double)Animal::storage[0].chars["sleep_current"]/Animal::storage[0].chars["sleep_max"]));
 }
 
+void AnimalWindow::itemButtonClicked()
+{
+    //
+    QMessageBox::warning(this, "Title", sender()->objectName());
+}
+
+void AnimalWindow::decreaseByTimer()
+{
+    //QMessageBox::warning(this, "Title", "TIMEOUT!");
+    for(int i = 0; i < inv.size("all"); i++)
+    {
+        if(inv[i].item->type == Misc::typeEnum::FOOD)
+        {
+            Animal::storage[0].takeEffects(*(inv[i].item));
+        }
+    }
+    displayAnimalChars();
+
+    this->timer->setInterval(5'000);
+    this->timer->start();
+}
+
 AnimalWindow::AnimalWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AnimalWindow)
 {
     ui->setupUi(this);
     shopWindow = new ShopWindow();
+    timer = new QTimer();
+    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(decreaseByTimer()));
+    timer->setInterval(5'000);
+    timer->start();
 
     itemButtons["food"] =
     {
@@ -124,6 +156,14 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
             ui->t5_itemButton_16, ui->t5_itemButton_17, ui->t5_itemButton_18, ui->t5_itemButton_19
     };
 
+    for(auto cathegory : itemButtons)
+    {
+        for(auto cur : cathegory)
+        {
+            QObject::connect(cur, SIGNAL(clicked()), this, SLOT(itemButtonClicked()));
+        }
+    }
+
     if(inv.loadFromJson("D:\\\\Repos\\Al_Tama\\Items.json"))
     {
         QMessageBox::information(this, "Title", "Inventory loading successfull");
@@ -150,11 +190,6 @@ AnimalWindow::~AnimalWindow()
     delete ui;
 }
 
-void AnimalWindow::on_goToShopButton_t1_clicked()
-{
-    shopWindow->show();
-}
-
 void AnimalWindow::on_t1_saveButton_clicked()
 {
     if(inv.saveToJson("Items.json"))
@@ -164,6 +199,14 @@ void AnimalWindow::on_t1_saveButton_clicked()
     else
     {
          QMessageBox::critical(this, "Title", "Inventory saving failed");
+    }
+    if(Animal::saveToJson("Animals.json"))
+    {
+         QMessageBox::information(this, "Title", "Animals set saving successfull");
+    }
+    else
+    {
+         QMessageBox::critical(this, "Title", "Animals set saving failed");
     }
 }
 

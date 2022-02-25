@@ -8,7 +8,6 @@
 
 Inventory::Inventory()
 {
-
 }
 
 bool Inventory::loadFromJson(QString path)

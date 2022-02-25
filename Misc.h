@@ -3,10 +3,12 @@
 #include <QString>
 #include <QMap>
 #include <QJsonObject>
+#include <QPushButton>
 using namespace std;
 class Misc
 {
 public:
+    Misc();
     enum typeEnum
     {
         FOOD,
@@ -24,5 +26,6 @@ public:
     QMap<QString, int> effects;
 
     static Misc createFromJsonObjectIterator(QJsonObject::iterator);
+    QPushButton* button;
 };
 #endif// MISC

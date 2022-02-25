@@ -2,6 +2,7 @@
 #define INVENTORY_H
 #include <QVector>
 #include "Misc.h"
+#include <QPushButton>
 
 class Inventory
 {

@@ -9,7 +9,7 @@ class Animal
 public:
     static QVector<Animal> storage;
     static bool loadFromJson(QString path);
-    static bool saveToFromJson(QString path);
+    static bool saveToJson(QString path);
     Animal();
     Animal(QString, QString, size_t, QMap<QString, int>);
     QString name;

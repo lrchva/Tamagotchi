@@ -6,8 +6,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    animalWindow = new AnimalWindow();
-    shopWindow = new ShopWindow();
 }
 
 MainWindow::~MainWindow()
@@ -18,6 +16,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_toAnimalsButton_clicked()
 {
+    animalWindow = new AnimalWindow();
     animalWindow->show();
     this->close();
 }
@@ -25,6 +24,7 @@ void MainWindow::on_toAnimalsButton_clicked()
 
 void MainWindow::on_toShopButton_clicked()
 {
+    shopWindow = new ShopWindow();
     shopWindow->show();
     this->close();
 }

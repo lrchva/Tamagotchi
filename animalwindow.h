@@ -8,6 +8,7 @@
 #include <QPushButton>
 #include "shopwindow.h"
 #include "inventory.h"
+#include <QTimer>
 
 namespace Ui {
 class AnimalWindow;
@@ -25,10 +26,12 @@ public:
     QMap< QString, QVector<QPushButton* > > itemButtons;
     void displayInventory();
     void displayAnimalChars();
+    QTimer* timer;
 
 private slots:
-    void on_goToShopButton_t1_clicked();
     void on_t1_saveButton_clicked();
+    void itemButtonClicked();
+    void decreaseByTimer();
 
 private:
     Ui::AnimalWindow *ui;

@@ -74,21 +74,12 @@ bool Animal::loadFromJson(QString path)
 }
 
 
-bool Animal::saveToFromJson(QString path)
+bool Animal::saveToJson(QString path)
 {
     QJsonObject json;
     for(auto it = storage.begin(); it != storage.end(); it++)
     {
         QString type;
-        switch(type)
-        {
-        case 0: type = "Cat"; break;
-        case 1: type = "Dog"; break;
-        case 2: type = "Rabbit"; break;
-        case 3: type = "Humster"; break;
-        case 4: type = "MiniPig"; break;
-        default: type = "Unknown"; break;
-        }
         QJsonObject curSlot;
         curSlot.insert("type", type);
         curSlot.insert("pathToSkin", it->pathToSkin);
@@ -124,9 +115,11 @@ void Animal::takeEffects(Misc source)
 {
     try
     {
-        for(auto it = source.effects.keys().begin(); it != source.effects.keys().end(); it++)
+        for(auto cur : source.effects.keys())
         {
-            this->chars[*it] += source.effects[*it];
+            this->chars[cur] = (this->chars[cur]+source.effects[cur] > 100) ? 100 : this->chars[cur]+source.effects[cur];
+            this->chars[cur] = (this->chars[cur]+source.effects[cur] < 0) ? 0 : this->chars[cur]+source.effects[cur];
+
         }
     }
     catch(std::exception e)
