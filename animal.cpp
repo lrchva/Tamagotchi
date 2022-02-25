@@ -73,6 +73,53 @@ bool Animal::loadFromJson(QString path)
     return true;
 }
 
+
+bool Animal::saveToFromJson(QString path)
+{
+    QJsonObject json;
+    for(auto it = storage.begin(); it != storage.end(); it++)
+    {
+        QString type;
+        switch(type)
+        {
+        case 0: type = "Cat"; break;
+        case 1: type = "Dog"; break;
+        case 2: type = "Rabbit"; break;
+        case 3: type = "Humster"; break;
+        case 4: type = "MiniPig"; break;
+        default: type = "Unknown"; break;
+        }
+        QJsonObject curSlot;
+        curSlot.insert("type", type);
+        curSlot.insert("pathToSkin", it->pathToSkin);
+        curSlot.insert("level", QJsonValue::fromVariant(it->level));
+        QJsonObject chars;
+        chars.insert("hunger_max", QJsonValue::fromVariant(it->chars["hunger_max"]));
+        chars.insert("hunger_current", QJsonValue::fromVariant(it->chars["hunger_current"]));
+
+        chars.insert("wash_max", QJsonValue::fromVariant(it->chars["wash_max"]));
+        chars.insert("wash_current", QJsonValue::fromVariant(it->chars["wash_current"]));
+
+        chars.insert("walk_max", QJsonValue::fromVariant(it->chars["walk_max"]));
+        chars.insert("walk_current", QJsonValue::fromVariant(it->chars["walk_current"]));
+
+        chars.insert("pet_max", QJsonValue::fromVariant(it->chars["pet_max"]));
+        chars.insert("pet_current", QJsonValue::fromVariant(it->chars["pet_current"]));
+
+        chars.insert("sleep_max", QJsonValue::fromVariant(it->chars["sleep_max"]));
+        chars.insert("sleep_current", QJsonValue::fromVariant(it->chars["sleep_current"]));
+        curSlot.insert("chars", chars);
+
+        json.insert(it->name, curSlot);
+    }
+    QJsonDocument doc(json);
+    QFile fout(path);
+    if(!fout.open(QIODevice::WriteOnly | QIODevice::Text)) return false;
+    fout.write(doc.toJson());
+    fout.close();
+    return true;
+}
+
 void Animal::takeEffects(Misc source)
 {
     try
