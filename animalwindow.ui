@@ -3318,6 +3318,12 @@
           <height>30</height>
          </size>
         </property>
+        <property name="baseSize">
+         <size>
+          <width>450</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -3369,6 +3375,12 @@
          </size>
         </property>
         <property name="maximumSize">
+         <size>
+          <width>450</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="baseSize">
          <size>
           <width>450</width>
           <height>30</height>
@@ -3430,6 +3442,12 @@
           <height>30</height>
          </size>
         </property>
+        <property name="baseSize">
+         <size>
+          <width>450</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -3486,6 +3504,12 @@
           <height>30</height>
          </size>
         </property>
+        <property name="baseSize">
+         <size>
+          <width>450</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -3537,6 +3561,18 @@
          </size>
         </property>
         <property name="maximumSize">
+         <size>
+          <width>450</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="sizeIncrement">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
          <size>
           <width>450</width>
           <height>30</height>

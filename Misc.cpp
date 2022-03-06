@@ -1,10 +1,6 @@
 #include "Misc.h"
 #define p pair<QString, Misc::typeEnum>
 
-Misc::Misc()
-{
-    this->button = nullptr;
-}
 
 Misc Misc::createFromJsonObjectIterator(QJsonObject::iterator source)
 {

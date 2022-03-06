@@ -16,7 +16,7 @@ public:
     QString type;
     size_t level;
     QString pathToSkin;
-    QMap<QString, size_t> chars;
+    QMap<QString, int> chars;
 
     void takeEffects(Misc);
     void* takeSpaecialEffects(Misc);

@@ -9,28 +9,28 @@ void AnimalWindow::displayInventory()
 {
     for(size_t i = inv.size("food"); i < itemButtons["food"].size(); i++)
     {
-        itemButtons["food"][i]->setEnabled(false);
-        itemButtons["food"][i]->setVisible(false);
+        itemButtons["food"][i].first->setEnabled(false);
+        itemButtons["food"][i].first->setVisible(false);
     }
     for(size_t i = inv.size("wash"); i < itemButtons["wash"].size(); i++)
     {
-        itemButtons["wash"][i]->setEnabled(false);
-        itemButtons["wash"][i]->setVisible(false);
+        itemButtons["wash"][i].first->setEnabled(false);
+        itemButtons["wash"][i].first->setVisible(false);
     }
     for(size_t i = inv.size("walk"); i < itemButtons["walk"].size(); i++)
     {
-        itemButtons["walk"][i]->setEnabled(false);
-        itemButtons["walk"][i]->setVisible(false);
+        itemButtons["walk"][i].first->setEnabled(false);
+        itemButtons["walk"][i].first->setVisible(false);
     }
     for(size_t i = inv.size("sleep"); i < itemButtons["sleep"].size(); i++)
     {
-        itemButtons["sleep"][i]->setEnabled(false);
-        itemButtons["sleep"][i]->setVisible(false);
+        itemButtons["sleep"][i].first->setEnabled(false);
+        itemButtons["sleep"][i].first->setVisible(false);
     }
     for(size_t i = inv.size("pet"); i < itemButtons["pet"].size(); i++)
     {
-        itemButtons["pet"][i]->setEnabled(false);
-        itemButtons["pet"][i]->setVisible(false);
+        itemButtons["pet"][i].first->setEnabled(false);
+        itemButtons["pet"][i].first->setVisible(false);
     }
     size_t k1 = 0;
     size_t k2 = 0;
@@ -41,32 +41,32 @@ void AnimalWindow::displayInventory()
     {
         if(inv[i].item->type == Misc::typeEnum::FOOD)
         {
-            itemButtons["food"][k1]->setIcon(QIcon(inv[i].pathToSkin));
-            inv[i].item->button = itemButtons["food"][k1];
+            itemButtons["food"][k1].first->setIcon(QIcon(inv[i].pathToSkin));
+            itemButtons["food"][k1].second = inv[i].item->name;
             k1++;
         }
         if(inv[i].item->type == Misc::typeEnum::WASH)
         {
-            itemButtons["wash"][k2]->setIcon(QIcon(inv[i].pathToSkin));
-            inv[i].item->button = itemButtons["wash"][k2];
+            itemButtons["wash"][k2].first->setIcon(QIcon(inv[i].pathToSkin));
+            itemButtons["wash"][k2].second = inv[i].item->name;
             k2++;
         }
         if(inv[i].item->type == Misc::typeEnum::WALK)
         {
-            itemButtons["walk"][k3]->setIcon(QIcon(inv[i].pathToSkin));
-            inv[i].item->button = itemButtons["walk"][k3];
+            itemButtons["walk"][k3].first->setIcon(QIcon(inv[i].pathToSkin));
+            itemButtons["walk"][k3].second = inv[i].item->name;
             k3++;
         }
         if(inv[i].item->type == Misc::typeEnum::SLEEP)
         {
-            itemButtons["sleep"][k4]->setIcon(QIcon(inv[i].pathToSkin));
-            inv[i].item->button = itemButtons["sleep"][k4];
+            itemButtons["sleep"][k4].first->setIcon(QIcon(inv[i].pathToSkin));
+            itemButtons["sleep"][k4].second = inv[i].item->name;
             k4++;
         }
         if(inv[i].item->type == Misc::typeEnum::PET)
         {
-            itemButtons["pet"][k5]->setIcon(QIcon(inv[i].pathToSkin));
-            inv[i].item->button = itemButtons["pet"][k5];
+            itemButtons["pet"][k5].first->setIcon(QIcon(inv[i].pathToSkin));
+            itemButtons["pet"][k5].second = inv[i].item->name;
             k5++;
         }
     }
@@ -75,32 +75,49 @@ void AnimalWindow::displayAnimalChars()
 {
     //REDO
     ui->tabWidget->setTabText(0, Animal::storage[0].name);
-    ui->Hunger_PB->setFixedWidth(ui->Hunger_PB->maximumWidth() *
+    ui->Hunger_PB->setFixedWidth(ui->Hunger_PB->baseSize().width() *
     ((double)Animal::storage[0].chars["hunger_current"]/Animal::storage[0].chars["hunger_max"]));
-    ui->Wash_PB->setFixedWidth(ui->Wash_PB->maximumWidth() *
+    ui->Wash_PB->setFixedWidth(ui->Wash_PB->baseSize().width() *
     ((double)Animal::storage[0].chars["wash_current"]/Animal::storage[0].chars["wash_max"]));
-    ui->Walk_PB->setFixedWidth(ui->Walk_PB->maximumWidth() *
+    ui->Walk_PB->setFixedWidth(ui->Walk_PB->baseSize().width() *
     ((double)Animal::storage[0].chars["walk_current"]/Animal::storage[0].chars["walk_max"]));
-    ui->Pet_PB->setFixedWidth(ui->Pet_PB->maximumWidth() *
+    ui->Pet_PB->setFixedWidth(ui->Pet_PB->baseSize().width() *
     ((double)Animal::storage[0].chars["pet_current"]/Animal::storage[0].chars["pet_max"]));
-    ui->Sleep_PB->setFixedWidth(ui->Sleep_PB->maximumWidth() *
+    ui->Sleep_PB->setFixedWidth(ui->Sleep_PB->baseSize().width() *
     ((double)Animal::storage[0].chars["sleep_current"]/Animal::storage[0].chars["sleep_max"]));
 }
 
 void AnimalWindow::itemButtonClicked()
 {
-    //
-    QMessageBox::warning(this, "Title", sender()->objectName());
+    QString cathegory = "";
+    if(sender()->objectName().startsWith("t1")) cathegory = "food";
+    if(sender()->objectName().startsWith("t2")) cathegory = "wash";
+    if(sender()->objectName().startsWith("t3")) cathegory = "walk";
+    if(sender()->objectName().startsWith("t4")) cathegory = "pet";
+    if(sender()->objectName().startsWith("t5")) cathegory = "sleep";
+    if(cathegory == "") return;
+    for(auto cur : itemButtons[cathegory])
+    {
+        if(cur.first->objectName() == sender()->objectName())
+        {
+            inv.removeItem(cur.second, 1);
+            Animal::storage[ui->tabWidget->currentIndex()].takeEffects(*(inv[cur.second].item));
+            displayAnimalChars();
+            displayInventory();
+            return;
+        }
+    }
+
 }
 
 void AnimalWindow::decreaseByTimer()
 {
-    //QMessageBox::warning(this, "Title", "TIMEOUT!");
     for(int i = 0; i < inv.size("all"); i++)
     {
         if(inv[i].item->type == Misc::typeEnum::FOOD)
         {
             Animal::storage[0].takeEffects(*(inv[i].item));
+            break;
         }
     }
     displayAnimalChars();
@@ -122,45 +139,123 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
 
     itemButtons["food"] =
     {
-            ui->t1_itemButton_0, ui->t1_itemButton_1, ui->t1_itemButton_2, ui->t1_itemButton_3, ui->t1_itemButton_4, ui->t1_itemButton_5,
-            ui->t1_itemButton_6, ui->t1_itemButton_7, ui->t1_itemButton_8, ui->t1_itemButton_9, ui->t1_itemButton_10,
-            ui->t1_itemButton_11, ui->t1_itemButton_12, ui->t1_itemButton_13, ui->t1_itemButton_14, ui->t1_itemButton_15,
-            ui->t1_itemButton_16, ui->t1_itemButton_17, ui->t1_itemButton_18
+            QPair<QPushButton*, QString>(ui->t1_itemButton_0, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_1, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_2, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_3, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_4, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_5, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_6, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_7, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_8, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_9, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_10, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_11, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_12, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_13, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_14, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_15, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_16, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_17, ""),
+            QPair<QPushButton*, QString>(ui->t1_itemButton_18, "")
+
     };
     itemButtons["wash"] =
     {
-            ui->t2_itemButton_1, ui->t2_itemButton_2, ui->t2_itemButton_3, ui->t2_itemButton_4, ui->t2_itemButton_9, ui->t2_itemButton_10,
-            ui->t2_itemButton_11, ui->t2_itemButton_12, ui->t2_itemButton_13, ui->t2_itemButton_14, ui->t2_itemButton_15, ui->t2_itemButton_16,
-            ui->t2_itemButton_17, ui->t2_itemButton_18, ui->t2_itemButton_19, ui->t2_itemButton_20, ui->t2_itemButton_21, ui->t2_itemButton_22,
-            ui->t2_itemButton_23
+            QPair<QPushButton*, QString>(ui->t2_itemButton_1, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_2, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_3, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_4, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_9, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_10, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_11, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_12, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_13, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_14, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_15, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_16, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_17, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_18, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_19, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_20, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_21, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_22, ""),
+            QPair<QPushButton*, QString>(ui->t2_itemButton_23, "")
+
     };
     itemButtons["walk"] =
     {
-            ui->t3_itemButton_1, ui->t3_itemButton_2, ui->t3_itemButton_3, ui->t3_itemButton_4, ui->t3_itemButton_5,
-            ui->t3_itemButton_6, ui->t3_itemButton_7, ui->t3_itemButton_8, ui->t3_itemButton_9, ui->t3_itemButton_10,
-            ui->t3_itemButton_11, ui->t3_itemButton_12, ui->t3_itemButton_13, ui->t3_itemButton_14, ui->t3_itemButton_15,
-            ui->t3_itemButton_16, ui->t3_itemButton_17, ui->t3_itemButton_18, ui->t3_itemButton_19
+            QPair<QPushButton*, QString>(ui->t3_itemButton_1, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_2, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_3, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_4, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_5, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_6, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_7, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_8, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_9, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_10, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_11, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_12, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_13, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_14, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_15, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_16, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_17, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_18, ""),
+            QPair<QPushButton*, QString>(ui->t3_itemButton_19, "")
+
     };
     itemButtons["sleep"] =
     {
-            ui->t4_itemButton_1, ui->t4_itemButton_2, ui->t4_itemButton_3, ui->t4_itemButton_4, ui->t4_itemButton_5,
-            ui->t4_itemButton_6, ui->t4_itemButton_7, ui->t4_itemButton_8, ui->t4_itemButton_9, ui->t4_itemButton_10,
-            ui->t4_itemButton_11, ui->t4_itemButton_12, ui->t4_itemButton_13, ui->t4_itemButton_14, ui->t4_itemButton_15,
-            ui->t4_itemButton_16, ui->t4_itemButton_17, ui->t4_itemButton_18, ui->t4_itemButton_19
+            QPair<QPushButton*, QString>(ui->t4_itemButton_1, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_2, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_3, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_4, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_5, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_6, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_7, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_8, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_9, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_10, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_11, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_12, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_13, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_14, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_15, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_16, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_17, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_18, ""),
+            QPair<QPushButton*, QString>(ui->t4_itemButton_19, "")
     };
     itemButtons["pet"] =
     {
-            ui->t5_itemButton_1, ui->t5_itemButton_2, ui->t5_itemButton_3, ui->t5_itemButton_4, ui->t5_itemButton_5,
-            ui->t5_itemButton_6, ui->t5_itemButton_7, ui->t5_itemButton_8, ui->t5_itemButton_9, ui->t5_itemButton_10,
-            ui->t5_itemButton_11, ui->t5_itemButton_12, ui->t5_itemButton_13, ui->t5_itemButton_14, ui->t5_itemButton_15,
-            ui->t5_itemButton_16, ui->t5_itemButton_17, ui->t5_itemButton_18, ui->t5_itemButton_19
+            QPair<QPushButton*, QString>(ui->t5_itemButton_1, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_2, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_3, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_4, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_5, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_6, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_7, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_8, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_9, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_10, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_11, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_12, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_13, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_14, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_15, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_16, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_17, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_18, ""),
+            QPair<QPushButton*, QString>(ui->t5_itemButton_19, "")
     };
 
     for(auto cathegory : itemButtons)
     {
         for(auto cur : cathegory)
         {
-            QObject::connect(cur, SIGNAL(clicked()), this, SLOT(itemButtonClicked()));
+            QObject::connect(cur.first, SIGNAL(clicked()), this, SLOT(itemButtonClicked()));
         }
     }
 

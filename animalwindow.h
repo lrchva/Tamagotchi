@@ -23,7 +23,8 @@ public:
     ~AnimalWindow();
 
     Inventory inv;
-    QMap< QString, QVector<QPushButton* > > itemButtons;
+    /**itemButtons["Cathegory"][index].(button* + slotName)*/
+    QMap< QString, QVector< QPair<QPushButton*, QString> > > itemButtons;
     void displayInventory();
     void displayAnimalChars();
     QTimer* timer;

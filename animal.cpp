@@ -117,9 +117,7 @@ void Animal::takeEffects(Misc source)
     {
         for(auto cur : source.effects.keys())
         {
-            this->chars[cur] = (this->chars[cur]+source.effects[cur] > 100) ? 100 : this->chars[cur]+source.effects[cur];
-            this->chars[cur] = (this->chars[cur]+source.effects[cur] < 0) ? 0 : this->chars[cur]+source.effects[cur];
-
+            this->chars[cur] = max(0, this->chars[cur]+source.effects[cur] % 100);
         }
     }
     catch(std::exception e)
