@@ -7,6 +7,12 @@
 #include <QPair>
 
 
+void AnimalWindow::toShopButtonClicked()
+{
+    shopWindow = new ShopWindow();
+    shopWindow->show();
+}
+
 void AnimalWindow::displayInventory()
 {
     for(size_t i = inv.size("food"); i < itemButtons["food"].size(); i++)
@@ -50,7 +56,8 @@ void AnimalWindow::displayInventory()
         {
             itemButtons["food"][k1].first->setIcon(QIcon(inv[i].pathToSkin));
             itemButtons["food"][k1].second = inv[i].item->name;
-            labels["food"][k1].first->setText(inv[i].count);
+            //TODO: to the rest
+            labels["food"][k1].first->setText(QString::number(inv[i].count));
             k1++;
         }
         if(inv[i].item->type == Misc::typeEnum::WASH)
@@ -104,12 +111,21 @@ void AnimalWindow::itemButtonClicked()
     if(sender()->objectName().startsWith("t4")) cathegory = "pet";
     if(sender()->objectName().startsWith("t5")) cathegory = "sleep";
     if(cathegory == "") return;
-    for(auto cur : itemButtons[cathegory])
+    for(int index = 0; index <= itemButtons[cathegory].size(); index++)
     {
+        QPair<QPushButton*, QString>& cur = itemButtons[cathegory][index];
         if(cur.first->objectName() == sender()->objectName())
         {
-            inv.removeItem(cur.second, 1);
             Animal::storage[ui->tabWidget->currentIndex()].takeEffects(*(inv[cur.second].item));
+            if(inv[cur.second].count == 1)
+            {
+                cur.first->setEnabled(false);
+                cur.first->setVisible(false);
+                labels[cathegory][index].first->setEnabled(false);
+                inv.removeItem(cur.second, 1);
+                cur.second = "";
+            }
+            else inv.removeItem(cur.second, 1);
             displayAnimalChars();
             displayInventory();
             return;
@@ -259,6 +275,12 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
             QPair<QPushButton*, QString>(ui->t5_itemButton_19, "")
     };
 
+    toShopButtons = {ui->t1_goToShopButton,
+                     ui->t2_goToShopButton,
+                     ui->t3_goToShopButton,
+                     ui->t4_goToShopButton,
+                     ui->t5_goToShopButton};
+
     labels["food"] =
     {
             QPair<QLabel*, QString>(ui->t1_label_1, ""),
@@ -375,6 +397,10 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
         {
             QObject::connect(cur.first, SIGNAL(clicked()), this, SLOT(itemButtonClicked()));
         }
+    }
+    for(auto cur : toShopButtons)
+    {
+        QObject::connect(cur, SIGNAL(clicked()), this, SLOT(toShopButtonClicked()));
     }
 
     if(inv.loadFromJson("D:\\\\Repos\\Al_Tama\\Items.json"))

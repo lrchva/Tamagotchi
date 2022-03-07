@@ -27,6 +27,7 @@ public:
     /**itemButtons["Cathegory"][index].(button* + slotName)*/
     QMap< QString, QVector< QPair<QPushButton*, QString> > > itemButtons;
     QMap< QString, QVector< QPair<QLabel*, QString> > > labels;
+    QVector<QPushButton*> toShopButtons;
     void displayInventory();
     void displayAnimalChars();
     QTimer* timer;
@@ -34,6 +35,7 @@ public:
 private slots:
     void on_t1_saveButton_clicked();
     void itemButtonClicked();
+    void toShopButtonClicked();
     void decreaseByTimer();
 
 private:

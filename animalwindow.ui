@@ -57,7 +57,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../Horockey/Desktop/472862.jpg</pixmap>
+      <pixmap>C:/Users/Horockey/Desktop/472862.jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -89,6 +89,12 @@
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
+        </property>
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <item row="2" column="2">
          <widget class="QPushButton" name="t1_itemButton_11">
           <property name="sizePolicy">
@@ -133,6 +139,9 @@
           </property>
           <property name="text">
            <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -237,6 +246,9 @@
           <property name="text">
            <string>TextLabel</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="2" column="0">
@@ -340,6 +352,9 @@
           <property name="text">
            <string>TextLabel</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="0" column="8">
@@ -415,6 +430,9 @@
           <property name="text">
            <string>TextLabel</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="1" column="1">
@@ -434,6 +452,9 @@
           <property name="text">
            <string>TextLabel</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="1" column="7">
@@ -452,6 +473,9 @@
           </property>
           <property name="text">
            <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -531,6 +555,9 @@
           </property>
           <property name="text">
            <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -775,6 +802,9 @@
           <property name="text">
            <string>TextLabel</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="2" column="4">
@@ -822,6 +852,9 @@
           <property name="text">
            <string>TextLabel</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="3" column="0">
@@ -840,6 +873,9 @@
           </property>
           <property name="text">
            <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -860,6 +896,9 @@
           <property name="text">
            <string>TextLabel</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="3" column="2">
@@ -878,6 +917,9 @@
           </property>
           <property name="text">
            <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -898,6 +940,9 @@
           <property name="text">
            <string>TextLabel</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="3" column="4">
@@ -916,6 +961,9 @@
           </property>
           <property name="text">
            <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -936,6 +984,9 @@
           <property name="text">
            <string>TextLabel</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="3" column="6">
@@ -954,6 +1005,9 @@
           </property>
           <property name="text">
            <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -974,6 +1028,9 @@
           <property name="text">
            <string>TextLabel</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="3" column="8">
@@ -993,6 +1050,9 @@
           <property name="text">
            <string>TextLabel</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="3" column="9">
@@ -1011,6 +1071,9 @@
           </property>
           <property name="text">
            <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -2032,6 +2095,13 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>ToShop</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -2548,7 +2618,7 @@
          </widget>
         </item>
         <item row="0" column="0">
-         <widget class="QPushButton" name="t2_goToShopButton_2">
+         <widget class="QPushButton" name="t3_goToShopButton">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -3451,7 +3521,7 @@
          </widget>
         </item>
         <item row="0" column="0">
-         <widget class="QPushButton" name="t2_goToShopButton_3">
+         <widget class="QPushButton" name="t4_goToShopButton">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -4265,7 +4335,7 @@
          </widget>
         </item>
         <item row="0" column="0">
-         <widget class="QPushButton" name="t2_goToShopButton_4">
+         <widget class="QPushButton" name="t5_goToShopButton">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -4286,7 +4356,7 @@
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../../../Horockey/Desktop/111.png</normaloff>../../../Horockey/Desktop/111.png</iconset>
+            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -5133,7 +5203,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5195,7 +5265,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5257,7 +5327,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5319,7 +5389,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5387,7 +5457,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>

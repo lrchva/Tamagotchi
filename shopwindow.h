@@ -2,6 +2,7 @@
 #define SHOPWINDOW_H
 
 #include <QWidget>
+#include "inventory.h"
 
 namespace Ui {
 class ShopWindow;
