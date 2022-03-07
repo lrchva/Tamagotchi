@@ -18,7 +18,7 @@ public:
 private:
     QVector<Slot> storage;
 public:
-    bool loadFromJson(QString path = "Inventory.json");
+    bool loadFromJson(QString path = "Items.json");
     bool saveToJson(QString path = "Inventory.json");
     Slot& operator[](size_t index);
     Slot& operator[](QString name);

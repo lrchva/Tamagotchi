@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QVector>
+#include <QLabel>
 #include <QMap>
 #include <QString>
 #include <QPushButton>
@@ -25,6 +26,7 @@ public:
     Inventory inv;
     /**itemButtons["Cathegory"][index].(button* + slotName)*/
     QMap< QString, QVector< QPair<QPushButton*, QString> > > itemButtons;
+    QMap< QString, QVector< QPair<QLabel*, QString> > > labels;
     void displayInventory();
     void displayAnimalChars();
     QTimer* timer;

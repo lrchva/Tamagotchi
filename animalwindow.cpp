@@ -3,6 +3,8 @@
 #include "animal.h"
 #include <QMessageBox>
 #include <QLabel>
+#include <QMap>
+#include <QPair>
 
 
 void AnimalWindow::displayInventory()
@@ -11,26 +13,31 @@ void AnimalWindow::displayInventory()
     {
         itemButtons["food"][i].first->setEnabled(false);
         itemButtons["food"][i].first->setVisible(false);
+        labels["food"][i].first->setVisible(false);
     }
     for(size_t i = inv.size("wash"); i < itemButtons["wash"].size(); i++)
     {
         itemButtons["wash"][i].first->setEnabled(false);
         itemButtons["wash"][i].first->setVisible(false);
+        labels["wash"][i].first->setVisible(false);
     }
     for(size_t i = inv.size("walk"); i < itemButtons["walk"].size(); i++)
     {
         itemButtons["walk"][i].first->setEnabled(false);
         itemButtons["walk"][i].first->setVisible(false);
+        labels["walk"][i].first->setVisible(false);
     }
     for(size_t i = inv.size("sleep"); i < itemButtons["sleep"].size(); i++)
     {
         itemButtons["sleep"][i].first->setEnabled(false);
         itemButtons["sleep"][i].first->setVisible(false);
+        labels["sleep"][i].first->setVisible(false);
     }
     for(size_t i = inv.size("pet"); i < itemButtons["pet"].size(); i++)
     {
         itemButtons["pet"][i].first->setEnabled(false);
         itemButtons["pet"][i].first->setVisible(false);
+        labels["pet"][i].first->setVisible(false);
     }
     size_t k1 = 0;
     size_t k2 = 0;
@@ -43,6 +50,7 @@ void AnimalWindow::displayInventory()
         {
             itemButtons["food"][k1].first->setIcon(QIcon(inv[i].pathToSkin));
             itemButtons["food"][k1].second = inv[i].item->name;
+            labels["food"][k1].first->setText(inv[i].count);
             k1++;
         }
         if(inv[i].item->type == Misc::typeEnum::WASH)
@@ -251,6 +259,116 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
             QPair<QPushButton*, QString>(ui->t5_itemButton_19, "")
     };
 
+    labels["food"] =
+    {
+            QPair<QLabel*, QString>(ui->t1_label_1, ""),
+            QPair<QLabel*, QString>(ui->t1_label_2, ""),
+            QPair<QLabel*, QString>(ui->t1_label_3, ""),
+            QPair<QLabel*, QString>(ui->t1_label_4, ""),
+            QPair<QLabel*, QString>(ui->t1_label_5, ""),
+            QPair<QLabel*, QString>(ui->t1_label_6, ""),
+            QPair<QLabel*, QString>(ui->t1_label_7, ""),
+            QPair<QLabel*, QString>(ui->t1_label_8, ""),
+            QPair<QLabel*, QString>(ui->t1_label_9, ""),
+            QPair<QLabel*, QString>(ui->t1_label_10, ""),
+            QPair<QLabel*, QString>(ui->t1_label_11, ""),
+            QPair<QLabel*, QString>(ui->t1_label_12, ""),
+            QPair<QLabel*, QString>(ui->t1_label_13, ""),
+            QPair<QLabel*, QString>(ui->t1_label_14, ""),
+            QPair<QLabel*, QString>(ui->t1_label_15, ""),
+            QPair<QLabel*, QString>(ui->t1_label_16, ""),
+            QPair<QLabel*, QString>(ui->t1_label_17, ""),
+            QPair<QLabel*, QString>(ui->t1_label_18, ""),
+            QPair<QLabel*, QString>(ui->t1_label_19, "")
+    };
+    labels["wash"] =
+    {
+            QPair<QLabel*, QString>(ui->t2_label_1, ""),
+            QPair<QLabel*, QString>(ui->t2_label_2, ""),
+            QPair<QLabel*, QString>(ui->t2_label_3, ""),
+            QPair<QLabel*, QString>(ui->t2_label_4, ""),
+            QPair<QLabel*, QString>(ui->t2_label_5, ""),
+            QPair<QLabel*, QString>(ui->t2_label_6, ""),
+            QPair<QLabel*, QString>(ui->t2_label_7, ""),
+            QPair<QLabel*, QString>(ui->t2_label_8, ""),
+            QPair<QLabel*, QString>(ui->t2_label_9, ""),
+            QPair<QLabel*, QString>(ui->t2_label_10, ""),
+            QPair<QLabel*, QString>(ui->t2_label_11, ""),
+            QPair<QLabel*, QString>(ui->t2_label_12, ""),
+            QPair<QLabel*, QString>(ui->t2_label_13, ""),
+            QPair<QLabel*, QString>(ui->t2_label_14, ""),
+            QPair<QLabel*, QString>(ui->t2_label_15, ""),
+            QPair<QLabel*, QString>(ui->t2_label_16, ""),
+            QPair<QLabel*, QString>(ui->t2_label_17, ""),
+            QPair<QLabel*, QString>(ui->t2_label_18, ""),
+            QPair<QLabel*, QString>(ui->t2_label_19, "")
+    };
+    labels["walk"] =
+    {
+            QPair<QLabel*, QString>(ui->t3_label_1, ""),
+            QPair<QLabel*, QString>(ui->t3_label_2, ""),
+            QPair<QLabel*, QString>(ui->t3_label_3, ""),
+            QPair<QLabel*, QString>(ui->t3_label_4, ""),
+            QPair<QLabel*, QString>(ui->t3_label_5, ""),
+            QPair<QLabel*, QString>(ui->t3_label_6, ""),
+            QPair<QLabel*, QString>(ui->t3_label_7, ""),
+            QPair<QLabel*, QString>(ui->t3_label_8, ""),
+            QPair<QLabel*, QString>(ui->t3_label_9, ""),
+            QPair<QLabel*, QString>(ui->t3_label_10, ""),
+            QPair<QLabel*, QString>(ui->t3_label_11, ""),
+            QPair<QLabel*, QString>(ui->t3_label_12, ""),
+            QPair<QLabel*, QString>(ui->t3_label_13, ""),
+            QPair<QLabel*, QString>(ui->t3_label_14, ""),
+            QPair<QLabel*, QString>(ui->t3_label_15, ""),
+            QPair<QLabel*, QString>(ui->t3_label_16, ""),
+            QPair<QLabel*, QString>(ui->t3_label_17, ""),
+            QPair<QLabel*, QString>(ui->t3_label_18, ""),
+            QPair<QLabel*, QString>(ui->t3_label_19, "")
+    };
+    labels["sleep"] =
+    {
+            QPair<QLabel*, QString>(ui->t4_label_1, ""),
+            QPair<QLabel*, QString>(ui->t4_label_2, ""),
+            QPair<QLabel*, QString>(ui->t4_label_3, ""),
+            QPair<QLabel*, QString>(ui->t4_label_4, ""),
+            QPair<QLabel*, QString>(ui->t4_label_5, ""),
+            QPair<QLabel*, QString>(ui->t4_label_6, ""),
+            QPair<QLabel*, QString>(ui->t4_label_7, ""),
+            QPair<QLabel*, QString>(ui->t4_label_8, ""),
+            QPair<QLabel*, QString>(ui->t4_label_9, ""),
+            QPair<QLabel*, QString>(ui->t4_label_10, ""),
+            QPair<QLabel*, QString>(ui->t4_label_11, ""),
+            QPair<QLabel*, QString>(ui->t4_label_12, ""),
+            QPair<QLabel*, QString>(ui->t4_label_13, ""),
+            QPair<QLabel*, QString>(ui->t4_label_14, ""),
+            QPair<QLabel*, QString>(ui->t4_label_15, ""),
+            QPair<QLabel*, QString>(ui->t4_label_16, ""),
+            QPair<QLabel*, QString>(ui->t4_label_17, ""),
+            QPair<QLabel*, QString>(ui->t4_label_18, ""),
+            QPair<QLabel*, QString>(ui->t4_label_19, "")
+    };
+    labels["pet"] =
+    {
+            QPair<QLabel*, QString>(ui->t5_label_1, ""),
+            QPair<QLabel*, QString>(ui->t5_label_2, ""),
+            QPair<QLabel*, QString>(ui->t5_label_3, ""),
+            QPair<QLabel*, QString>(ui->t5_label_4, ""),
+            QPair<QLabel*, QString>(ui->t5_label_5, ""),
+            QPair<QLabel*, QString>(ui->t5_label_6, ""),
+            QPair<QLabel*, QString>(ui->t5_label_7, ""),
+            QPair<QLabel*, QString>(ui->t5_label_8, ""),
+            QPair<QLabel*, QString>(ui->t5_label_9, ""),
+            QPair<QLabel*, QString>(ui->t5_label_10, ""),
+            QPair<QLabel*, QString>(ui->t5_label_11, ""),
+            QPair<QLabel*, QString>(ui->t5_label_12, ""),
+            QPair<QLabel*, QString>(ui->t5_label_13, ""),
+            QPair<QLabel*, QString>(ui->t5_label_14, ""),
+            QPair<QLabel*, QString>(ui->t5_label_15, ""),
+            QPair<QLabel*, QString>(ui->t5_label_16, ""),
+            QPair<QLabel*, QString>(ui->t5_label_17, ""),
+            QPair<QLabel*, QString>(ui->t5_label_18, ""),
+            QPair<QLabel*, QString>(ui->t5_label_19, "")
+    };
     for(auto cathegory : itemButtons)
     {
         for(auto cur : cathegory)
