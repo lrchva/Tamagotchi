@@ -4,10 +4,14 @@
 #include "Misc.h"
 #include <QPushButton>
 
+
+
 class Inventory
 {
 public:
-    Inventory();
+    static QMap< QString, Inventory*> existingOnes;
+
+    Inventory(QString);
     class Slot
     {
     public:
@@ -17,12 +21,13 @@ public:
     };
 private:
     QVector<Slot> storage;
+
 public:
     bool loadFromJson(QString path = "Items.json");
     bool saveToJson(QString path = "Inventory.json");
     Slot& operator[](size_t index);
     Slot& operator[](QString name);
-    void addItem(Misc a, size_t count);
+    void addItem(Misc a, size_t count, QString pathToSkin);
     void removeItem(size_t index, size_t count);
     void removeItem(QString name, size_t count);
     size_t size(QString type);

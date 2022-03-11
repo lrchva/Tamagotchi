@@ -23,7 +23,7 @@ public:
     explicit AnimalWindow(QWidget *parent = nullptr);
     ~AnimalWindow();
 
-    Inventory inv;
+    Inventory inv{"User"};
     /**itemButtons["Cathegory"][index].(button* + slotName)*/
     QMap< QString, QVector< QPair<QPushButton*, QString> > > itemButtons;
     QMap< QString, QVector< QPair<QLabel*, QString> > > labels;

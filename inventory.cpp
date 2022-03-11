@@ -6,10 +6,11 @@
 
 #define p pair<QString, Misc::typeEnum>
 
-Inventory::Inventory()
+Inventory::Inventory(QString annotation)
 {
+   Inventory::existingOnes[annotation] = this;
 }
-
+QMap<QString, Inventory*> Inventory::existingOnes = QMap<QString, Inventory*>();
 bool Inventory::loadFromJson(QString path)
 {
     QString val;
@@ -118,10 +119,11 @@ size_t Inventory::size(QString type)
     return 0;
 }
 
-void Inventory::addItem(Misc a, size_t count)
+void Inventory::addItem(Misc a, size_t count, QString pathToSkin)
 {
     Slot temp;
     temp.item = new Misc(a);
+    temp.pathToSkin = pathToSkin;
     try
     {
         (*this)[a.name].count += count;

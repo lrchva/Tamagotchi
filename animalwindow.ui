@@ -57,7 +57,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../Horockey/Desktop/472862.jpg</pixmap>
+      <pixmap>../../Horockey/Desktop/472862.jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -73,7 +73,7 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="HungerTab">
       <attribute name="title">
@@ -5306,7 +5306,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>../../Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5368,7 +5368,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>../../Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5430,7 +5430,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>../../Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5492,7 +5492,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>../../Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5560,7 +5560,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>../../Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>

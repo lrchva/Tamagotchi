@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include "animalwindow.h"
 #include "shopwindow.h"
-
 QT_BEGIN_NAMESPACE
 namespace Ui {class MainWindow;}
 QT_END_NAMESPACE
@@ -25,6 +24,7 @@ private slots:
     void on_toShopButton_clicked();
 
     void on_exitButton_clicked();
+    void shopUserinteraction();
 
 private:
     Ui::MainWindow* ui;

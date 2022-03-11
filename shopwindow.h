@@ -21,14 +21,14 @@ public:
     explicit ShopWindow(QWidget *parent = nullptr);
     ~ShopWindow();
 
-    void displayInventory();  // todo
+    void displayShop();
 
-    Inventory inv;
-    QMap< QString, QVector< QPair<QPushButton*, QString> > > itemButtons;
+    Inventory shopInv{"Shop"};
+    QMap< QString, QVector< QPair<QPushButton*, QString> > > shopItemButtons;
     QMap< QString, QVector< QPair<QLabel*, QString> > > labels;
 
 private slots:
-    void itemButtonClicked();   // todo
+    void shopItemButtonClicked();   // todo
 
 private:
     Ui::ShopWindow *ui;

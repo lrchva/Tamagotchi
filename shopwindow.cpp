@@ -1,12 +1,37 @@
 #include "shopwindow.h"
 #include "ui_shopwindow.h"
+#include <QMessageBox>
+
+void ShopWindow::shopItemButtonClicked()
+{
+    QString cathegory = "";
+    if(sender()->objectName().startsWith("t1")) cathegory = "food";
+    if(sender()->objectName().startsWith("t2")) cathegory = "wash";
+    if(sender()->objectName().startsWith("t3")) cathegory = "walk";
+    if(sender()->objectName().startsWith("t4")) cathegory = "sleep";
+    if(sender()->objectName().startsWith("t5")) cathegory = "pet";
+    if(cathegory == "") return;
+    for(int index = 0; index <= shopItemButtons[cathegory].size(); index++)
+    {
+        QPair<QPushButton*, QString>& cur = shopItemButtons[cathegory][index];
+        if(cur.first->objectName() == sender()->objectName())
+        {
+            Inventory::existingOnes["User"]->addItem(
+                    *(shopInv[cur.second].item),
+                    shopInv[cur.second].count,
+                    shopInv[cur.second].pathToSkin);
+            return;
+        }
+    }
+}
 
 ShopWindow::ShopWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ShopWindow)
 {
     ui->setupUi(this);
-    itemButtons["food"] =
+    //shopInv.loadFromJson("Shop.json");//TODO: CREATE
+    shopItemButtons["food"] =
     {
             QPair<QPushButton*, QString>(ui->t1_ShopButton_1, ""),
             QPair<QPushButton*, QString>(ui->t1_ShopButton_2, ""),
@@ -38,7 +63,7 @@ ShopWindow::ShopWindow(QWidget *parent) :
             QPair<QPushButton*, QString>(ui->t1_ShopButton_28, ""),
             QPair<QPushButton*, QString>(ui->t1_ShopButton_29, ""),
             QPair<QPushButton*, QString>(ui->t1_ShopButton_30, "")};
-    itemButtons["walk"] =
+    shopItemButtons["walk"] =
     {
             QPair<QPushButton*, QString>(ui->t2_ShopButton_1, ""),
             QPair<QPushButton*, QString>(ui->t2_ShopButton_2, ""),
@@ -71,7 +96,7 @@ ShopWindow::ShopWindow(QWidget *parent) :
             QPair<QPushButton*, QString>(ui->t2_ShopButton_29, ""),
             QPair<QPushButton*, QString>(ui->t2_ShopButton_30, "")
     };
-    itemButtons["wash"] =
+    shopItemButtons["wash"] =
     {
             QPair<QPushButton*, QString>(ui->t3_ShopButton_1, ""),
             QPair<QPushButton*, QString>(ui->t3_ShopButton_2, ""),
@@ -104,7 +129,7 @@ ShopWindow::ShopWindow(QWidget *parent) :
             QPair<QPushButton*, QString>(ui->t3_ShopButton_29, ""),
             QPair<QPushButton*, QString>(ui->t3_ShopButton_30, "")
     };
-    itemButtons["sleep"] =
+    shopItemButtons["sleep"] =
     {
             QPair<QPushButton*, QString>(ui->t4_ShopButton_1, ""),
             QPair<QPushButton*, QString>(ui->t4_ShopButton_2, ""),
@@ -137,7 +162,7 @@ ShopWindow::ShopWindow(QWidget *parent) :
             QPair<QPushButton*, QString>(ui->t4_ShopButton_29, ""),
             QPair<QPushButton*, QString>(ui->t4_ShopButton_30, "")
     };
-    itemButtons["pet"] =
+    shopItemButtons["pet"] =
     {
             QPair<QPushButton*, QString>(ui->t5_ShopButton_1, ""),
             QPair<QPushButton*, QString>(ui->t5_ShopButton_2, ""),
@@ -170,11 +195,11 @@ ShopWindow::ShopWindow(QWidget *parent) :
             QPair<QPushButton*, QString>(ui->t5_ShopButton_29, ""),
             QPair<QPushButton*, QString>(ui->t5_ShopButton_30, "")
     };
-    for(auto cathegory : itemButtons)
+    for(auto cathegory : shopItemButtons)
     {
         for(auto cur : cathegory)
         {
-            QObject::connect(cur.first, SIGNAL(clicked()), this, SLOT(itemButtonClicked()));
+            QObject::connect(cur.first, SIGNAL(clicked()), this, SLOT(shopItemButtonClicked()));
         }
     }
     labels["food"] =
@@ -340,41 +365,43 @@ ShopWindow::ShopWindow(QWidget *parent) :
             QPair<QLabel*, QString>(ui->t5_ShopLabel_27, ""),
             QPair<QLabel*, QString>(ui->t5_ShopLabel_28, ""),
             QPair<QLabel*, QString>(ui->t5_ShopLabel_29, ""),
-            QPair<QLabel*, QString>(ui->t5_ShopLabel_30, ""),
-    };
+            QPair<QLabel*, QString>(ui->t5_ShopLabel_30, ""),};
+
+
+    displayShop();
 
 }
 
-void ShopWindow::displayInventory()
+void ShopWindow::displayShop()
 {
-    for(size_t i = inv.size("food"); i < itemButtons["food"].size(); i++)
+    for(size_t i = shopInv.size("food"); i < shopItemButtons["food"].size(); i++)
     {
-        itemButtons["food"][i].first->setEnabled(false);
-        itemButtons["food"][i].first->setVisible(false);
+        shopItemButtons["food"][i].first->setEnabled(false);
+        shopItemButtons["food"][i].first->setVisible(false);
         labels["food"][i].first->setVisible(false);
     }
-    for(size_t i = inv.size("walk"); i < itemButtons["walk"].size(); i++)
+    for(size_t i = shopInv.size("walk"); i < shopItemButtons["walk"].size(); i++)
     {
-        itemButtons["walk"][i].first->setEnabled(false);
-        itemButtons["walk"][i].first->setVisible(false);
+        shopItemButtons["walk"][i].first->setEnabled(false);
+        shopItemButtons["walk"][i].first->setVisible(false);
         labels["wash"][i].first->setVisible(false);
     }
-    for(size_t i = inv.size("wash"); i < itemButtons["wash"].size(); i++)
+    for(size_t i = shopInv.size("wash"); i < shopItemButtons["wash"].size(); i++)
     {
-        itemButtons["wash"][i].first->setEnabled(false);
-        itemButtons["wash"][i].first->setVisible(false);
+        shopItemButtons["wash"][i].first->setEnabled(false);
+        shopItemButtons["wash"][i].first->setVisible(false);
         labels["wash"][i].first->setVisible(false);
     }
-    for(size_t i = inv.size("sleep"); i < itemButtons["sleep"].size(); i++)
+    for(size_t i = shopInv.size("sleep"); i < shopItemButtons["sleep"].size(); i++)
     {
-        itemButtons["sleep"][i].first->setEnabled(false);
-        itemButtons["sleep"][i].first->setVisible(false);
+        shopItemButtons["sleep"][i].first->setEnabled(false);
+        shopItemButtons["sleep"][i].first->setVisible(false);
         labels["sleep"][i].first->setVisible(false);
     }
-    for(size_t i = inv.size("pet"); i < itemButtons["pet"].size(); i++)
+    for(size_t i = shopInv.size("pet"); i < shopItemButtons["pet"].size(); i++)
     {
-        itemButtons["pet"][i].first->setEnabled(false);
-        itemButtons["pet"][i].first->setVisible(false);
+        shopItemButtons["pet"][i].first->setEnabled(false);
+        shopItemButtons["pet"][i].first->setVisible(false);
         labels["pet"][i].first->setVisible(false);
     }
     size_t k1 = 0;
@@ -382,43 +409,50 @@ void ShopWindow::displayInventory()
     size_t k3 = 0;
     size_t k4 = 0;
     size_t k5 = 0;
-    for(size_t i = 0; i < inv.size("all"); i++)
+    for(size_t i = 0; i < shopInv.size("all"); i++)
     {
-        if(inv[i].item->type == Misc::typeEnum::FOOD)
+        if(shopInv[i].item->type == Misc::typeEnum::FOOD)
         {
-            itemButtons["food"][k1].first->setIcon(QIcon(inv[i].pathToSkin));
-            itemButtons["food"][k1].second = inv[i].item->name;
+            shopItemButtons["food"][k1].first->setIcon(QIcon(shopInv[i].pathToSkin));
+            shopItemButtons["food"][k1].second = shopInv[i].item->name;
             //TODO: to the rest
-            labels["food"][k1].first->setText(QString::number(inv[i].count));
+            labels["food"][k1].first->setText(QString::number(shopInv[i].count));
             k1++;
         }
-        if(inv[i].item->type == Misc::typeEnum::WALK)
+        if(shopInv[i].item->type == Misc::typeEnum::WALK)
         {
-            itemButtons["walk"][k2].first->setIcon(QIcon(inv[i].pathToSkin));
-            itemButtons["walk"][k2].second = inv[i].item->name;
-            labels["walk"][k2].first->setText(QString::number(inv[i].count));
+            shopItemButtons["walk"][k2].first->setIcon(QIcon(shopInv[i].pathToSkin));
+            shopItemButtons["walk"][k2].second = shopInv[i].item->name;
+            labels["walk"][k2].first->setText(QString::number(shopInv[i].count));
             k2++;
         }
-        if(inv[i].item->type == Misc::typeEnum::WASH)
+        if(shopInv[i].item->type == Misc::typeEnum::WASH)
         {
-            itemButtons["wash"][k3].first->setIcon(QIcon(inv[i].pathToSkin));
-            itemButtons["wash"][k3].second = inv[i].item->name;
-            labels["wash"][k3].first->setText(QString::number(inv[i].count));
+            shopItemButtons["wash"][k3].first->setIcon(QIcon(shopInv[i].pathToSkin));
+            shopItemButtons["wash"][k3].second = shopInv[i].item->name;
+            labels["wash"][k3].first->setText(QString::number(shopInv[i].count));
             k3++;
         }
-        if(inv[i].item->type == Misc::typeEnum::SLEEP)
+        if(shopInv[i].item->type == Misc::typeEnum::SLEEP)
         {
-            itemButtons["sleep"][k4].first->setIcon(QIcon(inv[i].pathToSkin));
-            itemButtons["sleep"][k4].second = inv[i].item->name;
-            labels["sleep"][k4].first->setText(QString::number(inv[i].count));
+            shopItemButtons["sleep"][k4].first->setIcon(QIcon(shopInv[i].pathToSkin));
+            shopItemButtons["sleep"][k4].second = shopInv[i].item->name;
+            labels["sleep"][k4].first->setText(QString::number(shopInv[i].count));
             k4++;
         }
-        if(inv[i].item->type == Misc::typeEnum::PET)
+        if(shopInv[i].item->type == Misc::typeEnum::PET)
         {
-            itemButtons["pet"][k5].first->setIcon(QIcon(inv[i].pathToSkin));
-            itemButtons["pet"][k5].second = inv[i].item->name;
-            labels["pet"][k5].first->setText(QString::number(inv[i].count));
+            shopItemButtons["pet"][k5].first->setIcon(QIcon(shopInv[i].pathToSkin));
+            shopItemButtons["pet"][k5].second = shopInv[i].item->name;
+            labels["pet"][k5].first->setText(QString::number(shopInv[i].count));
             k5++;
+        }
+    }
+    for(auto cathegory : shopItemButtons)
+    {
+        for(auto cur : cathegory)
+        {
+            QObject::connect(cur.first, SIGNAL(clicked()), this, SLOT(shopButtonClicked()));
         }
     }
 }

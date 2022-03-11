@@ -8,6 +8,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 }
 
+void MainWindow::shopUserinteraction()
+{
+    if(animalWindow == nullptr) return;
+    animalWindow->displayInventory();
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -26,6 +32,7 @@ void MainWindow::on_toShopButton_clicked()
 {
     shopWindow = new ShopWindow();
     shopWindow->show();
+    QObject::connect(shopWindow, SIGNAL(destroyed()), this, SLOT(shopUserInteraction()));
     this->close();
 }
 
