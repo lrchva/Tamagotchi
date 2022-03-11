@@ -2,6 +2,11 @@
 #define SHOPWINDOW_H
 
 #include <QWidget>
+#include <QVector>
+#include <QLabel>
+#include <QMap>
+#include <QString>
+#include <QPushButton>
 #include "inventory.h"
 
 namespace Ui {
@@ -15,6 +20,15 @@ class ShopWindow : public QWidget
 public:
     explicit ShopWindow(QWidget *parent = nullptr);
     ~ShopWindow();
+
+    void displayInventory();  // todo
+
+    Inventory inv;
+    QMap< QString, QVector< QPair<QPushButton*, QString> > > itemButtons;
+    QMap< QString, QVector< QPair<QLabel*, QString> > > labels;
+
+private slots:
+    void itemButtonClicked();   // todo
 
 private:
     Ui::ShopWindow *ui;

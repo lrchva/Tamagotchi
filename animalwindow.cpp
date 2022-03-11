@@ -64,24 +64,28 @@ void AnimalWindow::displayInventory()
         {
             itemButtons["wash"][k2].first->setIcon(QIcon(inv[i].pathToSkin));
             itemButtons["wash"][k2].second = inv[i].item->name;
+            labels["wash"][k2].first->setText(QString::number(inv[i].count));
             k2++;
         }
         if(inv[i].item->type == Misc::typeEnum::WALK)
         {
             itemButtons["walk"][k3].first->setIcon(QIcon(inv[i].pathToSkin));
             itemButtons["walk"][k3].second = inv[i].item->name;
+            labels["walk"][k3].first->setText(QString::number(inv[i].count));
             k3++;
         }
         if(inv[i].item->type == Misc::typeEnum::SLEEP)
         {
             itemButtons["sleep"][k4].first->setIcon(QIcon(inv[i].pathToSkin));
             itemButtons["sleep"][k4].second = inv[i].item->name;
+            labels["sleep"][k4].first->setText(QString::number(inv[i].count));
             k4++;
         }
         if(inv[i].item->type == Misc::typeEnum::PET)
         {
             itemButtons["pet"][k5].first->setIcon(QIcon(inv[i].pathToSkin));
             itemButtons["pet"][k5].second = inv[i].item->name;
+            labels["pet"][k5].first->setText(QString::number(inv[i].count));
             k5++;
         }
     }

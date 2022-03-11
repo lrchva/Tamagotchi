@@ -57,7 +57,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>C:/Users/Horockey/Desktop/472862.jpg</pixmap>
+      <pixmap>../../../Horockey/Desktop/472862.jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -73,7 +73,7 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="HungerTab">
       <attribute name="title">
@@ -95,8 +95,8 @@
         <property name="spacing">
          <number>0</number>
         </property>
-        <item row="2" column="2">
-         <widget class="QPushButton" name="t1_itemButton_11">
+        <item row="0" column="2">
+         <widget class="QPushButton" name="t1_itemButton_1">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -123,8 +123,8 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="2">
-         <widget class="QLabel" name="t1_label_2">
+        <item row="3" column="1">
+         <widget class="QLabel" name="t1_label_11">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -145,8 +145,8 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="7">
-         <widget class="QPushButton" name="t1_itemButton_16">
+        <item row="2" column="9">
+         <widget class="QPushButton" name="t1_itemButton_18">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -201,34 +201,6 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="9">
-         <widget class="QPushButton" name="t1_itemButton_8">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="3">
          <widget class="QLabel" name="t1_label_3">
           <property name="minimumSize">
@@ -251,92 +223,8 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="0">
-         <widget class="QPushButton" name="t1_itemButton_9">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="8">
-         <widget class="QPushButton" name="t1_itemButton_17">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="t1_itemButton_10">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="4">
-         <widget class="QLabel" name="t1_label_4">
+        <item row="1" column="2">
+         <widget class="QLabel" name="t1_label_2">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -357,8 +245,8 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="8">
-         <widget class="QPushButton" name="t1_itemButton_7">
+        <item row="0" column="7">
+         <widget class="QPushButton" name="t1_itemButton_6">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -413,106 +301,8 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="8">
-         <widget class="QLabel" name="t1_label_8">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="t1_label_1">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="7">
-         <widget class="QLabel" name="t1_label_7">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QPushButton" name="t1_goToShopButton">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QPushButton" name="t1_itemButton_1">
+        <item row="2" column="8">
+         <widget class="QPushButton" name="t1_itemButton_17">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -539,170 +329,8 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="9">
-         <widget class="QLabel" name="t1_label_9">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="7">
-         <widget class="QPushButton" name="t1_itemButton_6">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="5">
-         <widget class="QPushButton" name="t1_itemButton_14">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="6">
-         <widget class="QPushButton" name="t1_itemButton_5">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="5">
-         <widget class="QPushButton" name="t1_itemButton_4">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="3">
-         <widget class="QPushButton" name="t1_itemButton_12">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>50</width>
-            <height>50</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="9">
-         <widget class="QPushButton" name="t1_itemButton_18">
+        <item row="2" column="4">
+         <widget class="QPushButton" name="t1_itemButton_13">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -757,6 +385,100 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="5">
+         <widget class="QLabel" name="t1_label_5">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="5">
+         <widget class="QLabel" name="t1_label_15">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QPushButton" name="t1_itemButton_11">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="t1_label_1">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
         <item row="0" column="1">
          <widget class="QPushButton" name="t1_itemButton_0">
           <property name="sizePolicy">
@@ -785,8 +507,36 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="5">
-         <widget class="QLabel" name="t1_label_5">
+        <item row="2" column="3">
+         <widget class="QPushButton" name="t1_itemButton_12">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="7">
+         <widget class="QLabel" name="t1_label_17">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -807,8 +557,294 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="4">
-         <widget class="QPushButton" name="t1_itemButton_13">
+        <item row="1" column="8">
+         <widget class="QLabel" name="t1_label_8">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="8">
+         <widget class="QLabel" name="t1_label_18">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
+         <widget class="QLabel" name="t1_label_4">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="QLabel" name="t1_label_13">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="6">
+         <widget class="QLabel" name="t1_label_16">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="t1_label_10">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="9">
+         <widget class="QLabel" name="t1_label_9">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QLabel" name="t1_label_12">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="9">
+         <widget class="QLabel" name="t1_label_19">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="8">
+         <widget class="QPushButton" name="t1_itemButton_7">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="t1_goToShopButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>ShopButtonSkin.png</normaloff>ShopButtonSkin.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QPushButton" name="t1_itemButton_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="t1_itemButton_10">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -857,8 +893,36 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="t1_label_10">
+        <item row="2" column="0">
+         <widget class="QPushButton" name="t1_itemButton_9">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="7">
+         <widget class="QLabel" name="t1_label_7">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -879,69 +943,31 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
-         <widget class="QLabel" name="t1_label_11">
+        <item row="0" column="6">
+         <widget class="QPushButton" name="t1_itemButton_5">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>50</width>
-            <height>15</height>
+            <height>50</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>50</width>
-            <height>15</height>
+            <height>50</height>
            </size>
           </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="2">
-         <widget class="QLabel" name="t1_label_12">
-          <property name="minimumSize">
+          <property name="iconSize">
            <size>
             <width>50</width>
-            <height>15</height>
+            <height>50</height>
            </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="3">
-         <widget class="QLabel" name="t1_label_13">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -967,74 +993,92 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="5">
-         <widget class="QLabel" name="t1_label_15">
+        <item row="2" column="7">
+         <widget class="QPushButton" name="t1_itemButton_16">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>50</width>
-            <height>15</height>
+            <height>50</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>50</width>
-            <height>15</height>
+            <height>50</height>
            </size>
           </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
           </property>
          </widget>
         </item>
-        <item row="3" column="6">
-         <widget class="QLabel" name="t1_label_16">
+        <item row="2" column="5">
+         <widget class="QPushButton" name="t1_itemButton_14">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>50</width>
-            <height>15</height>
+            <height>50</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>50</width>
-            <height>15</height>
+            <height>50</height>
            </size>
           </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
           </property>
          </widget>
         </item>
-        <item row="3" column="7">
-         <widget class="QLabel" name="t1_label_17">
+        <item row="0" column="9">
+         <widget class="QPushButton" name="t1_itemButton_8">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>50</width>
-            <height>15</height>
+            <height>50</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>50</width>
-            <height>15</height>
+            <height>50</height>
            </size>
           </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
+          <property name="iconSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
           </property>
          </widget>
         </item>
-        <item row="3" column="8">
-         <widget class="QLabel" name="t1_label_18">
+        <item row="1" column="0">
+         <widget class="QLabel" name="t1_shop">
           <property name="minimumSize">
            <size>
             <width>50</width>
@@ -1048,29 +1092,7 @@
            </size>
           </property>
           <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="9">
-         <widget class="QLabel" name="t1_label_19">
-          <property name="minimumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>50</width>
-            <height>15</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
+           <string>SHOP</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -1780,7 +1802,7 @@
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
+            <normaloff>ShopButtonSkin.png</normaloff>ShopButtonSkin.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -2096,9 +2118,24 @@
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QLabel" name="label">
+         <widget class="QLabel" name="t1_shop_2">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
           <property name="text">
-           <string>ToShop</string>
+           <string>SHOP</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -2639,7 +2676,7 @@
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
+            <normaloff>ShopButtonSkin.png</normaloff>ShopButtonSkin.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -3120,6 +3157,28 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="t1_shop_3">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>SHOP</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -3542,7 +3601,7 @@
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
+            <normaloff>ShopButtonSkin.png</normaloff>ShopButtonSkin.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4138,6 +4197,28 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="t1_shop_4">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>SHOP</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -4356,7 +4437,7 @@
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
+            <normaloff>ShopButtonSkin.png</normaloff>ShopButtonSkin.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -5156,6 +5237,28 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="t1_shop_5">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>SHOP</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -5203,7 +5306,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5265,7 +5368,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5327,7 +5430,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5389,7 +5492,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5457,7 +5560,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>../../../Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
