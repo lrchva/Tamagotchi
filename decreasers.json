@@ -1,0 +1,17 @@
+{
+  "cat decreaser": {
+    "type": "",
+    "price": 0,
+    "pathToSkin": "C:\\Users\\user\\Desktop\\Tamagotchi\\Skins\\Cat.PNG",
+    "rank": 1,
+    "toWhom": "cat",
+    "count": 100,
+    "effects": {
+      "hunger_current": -5,
+      "wash_current": -3,
+      "walk_current": -2,
+      "pet_current": -5,
+      "sleep_current": -4
+    }
+  }
+}
