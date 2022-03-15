@@ -140,14 +140,9 @@ void AnimalWindow::itemButtonClicked()
 
 void AnimalWindow::decreaseByTimer()
 {
-    for(int i = 0; i < inv.size("all"); i++)
-    {
-        if(inv[i].item->type == Misc::typeEnum::FOOD)
-        {
-            Animal::storage[0].takeEffects(*(inv[i].item));
-            break;
-        }
-    }
+
+    Animal::storage[0].takeEffects(*(decreaser[0].item));
+
     displayAnimalChars();
 
     this->timer->setInterval(5'000);
@@ -416,7 +411,15 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
     {
         QMessageBox::critical(this, "Title", "Inventory loading failed");
     }
-
+    if(decreaser.loadFromJson("C:\\Users\\user\\Desktop\\Tamagotchi\\decreasers.json"))
+    {
+        QMessageBox::information(this, "Title", "Decreaser loading successfull");
+        displayInventory();
+    }
+    else
+    {
+        QMessageBox::critical(this, "Title", "Decreaser loading failed");
+    }
     if(Animal::loadFromJson("D:\\\\Repos\\Al_Tama\\Animals.json"))
     {
         QMessageBox::information(this, "Title", "Animal loading successfull");

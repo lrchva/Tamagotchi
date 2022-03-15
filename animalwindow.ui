@@ -499,6 +499,9 @@
             <height>50</height>
            </size>
           </property>
+          <property name="text">
+           <string comment="lol"/>
+          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
