@@ -57,7 +57,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Horockey/Desktop/472862.jpg</pixmap>
+      <pixmap>C:/Users/Horockey/Desktop/472862.jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -5309,7 +5309,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5371,7 +5371,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5433,7 +5433,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5495,7 +5495,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5563,7 +5563,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../../Horockey/Desktop/15432400240.jpg</pixmap>
+         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>

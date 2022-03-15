@@ -30,5 +30,6 @@ private:
     Ui::MainWindow* ui;
     AnimalWindow* animalWindow;
     ShopWindow* shopWindow;
+    CoinHolder coinHolder;
 };
 #endif // MAINWINDOW_H

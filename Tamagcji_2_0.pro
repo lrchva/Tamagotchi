@@ -12,6 +12,7 @@ SOURCES += \
     Misc.cpp \
     animal.cpp \
     animalwindow.cpp \
+    coinholder.cpp \
     inventory.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -21,6 +22,7 @@ HEADERS += \
     Misc.h \
     animal.h \
     animalwindow.h \
+    coinholder.h \
     inventory.h \
     mainwindow.h \
     shopwindow.h
@@ -37,4 +39,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     Animals.json \
-    Items.json
+    Items.json \
+    coinHolder.json \
+    decreasers.json

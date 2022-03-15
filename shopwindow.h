@@ -8,6 +8,7 @@
 #include <QString>
 #include <QPushButton>
 #include "inventory.h"
+#include "coinholder.h"
 
 namespace Ui {
 class ShopWindow;
@@ -29,6 +30,7 @@ public:
 
 private slots:
     void shopItemButtonClicked();   // todo
+    void redisplayBalance();
 
 private:
     Ui::ShopWindow *ui;

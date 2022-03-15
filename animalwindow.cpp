@@ -411,7 +411,7 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
     {
         QMessageBox::critical(this, "Title", "Inventory loading failed");
     }
-    if(decreaser.loadFromJson("C:\\Users\\user\\Desktop\\Tamagotchi\\decreasers.json"))
+    if(decreaser.loadFromJson("D:\\\\Repos\\Al_Tama\\decreasers.json"))
     {
         QMessageBox::information(this, "Title", "Decreaser loading successfull");
         displayInventory();

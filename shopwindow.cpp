@@ -30,7 +30,7 @@ ShopWindow::ShopWindow(QWidget *parent) :
     ui(new Ui::ShopWindow)
 {
     ui->setupUi(this);
-    //shopInv.loadFromJson("Shop.json");//TODO: CREATE
+    shopInv.loadFromJson("D:\\\\Repos\\Al_Tama\\Items.json");//TODO: CREATE
     shopItemButtons["food"] =
     {
             QPair<QPushButton*, QString>(ui->t1_ShopButton_1, ""),
@@ -371,9 +371,15 @@ ShopWindow::ShopWindow(QWidget *parent) :
     displayShop();
 
 }
+void ShopWindow::redisplayBalance()
+{
+   ui->coinsLabel->setText(QString::number(CoinHolder::mainCoinHolder->getBallance()));
+}
 
 void ShopWindow::displayShop()
 {
+    ui->coinsLabel->setText(QString::number(CoinHolder::mainCoinHolder->getBallance()));
+    QObject::connect(CoinHolder::mainCoinHolder->timer, SIGNAL(timeout()), this, SLOT(redisplayBalance()));
     for(size_t i = shopInv.size("food"); i < shopItemButtons["food"].size(); i++)
     {
         shopItemButtons["food"][i].first->setEnabled(false);
