@@ -24,7 +24,7 @@ public:
     ~AnimalWindow();
 
     Inventory inv{"User"};
-    Inventory decreaser{"User"};
+    Inventory decreaser{"Decreaser"};
     /**itemButtons["Cathegory"][index].(button* + slotName)*/
     QMap< QString, QVector< QPair<QPushButton*, QString> > > itemButtons;
     QMap< QString, QVector< QPair<QLabel*, QString> > > labels;
@@ -38,6 +38,7 @@ private slots:
     void itemButtonClicked();
     void toShopButtonClicked();
     void decreaseByTimer();
+    void redisplayInventorySlot();
 
 private:
     Ui::AnimalWindow *ui;

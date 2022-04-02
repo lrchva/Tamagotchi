@@ -1,17 +1,16 @@
 #ifndef COINHOLDER_H
 #define COINHOLDER_H
+
+#include <QObject>
 #include<QString>
 #include<QTimer>
 
 class CoinHolder : public QObject
 {
-private:
-    int balance = 0;
-    int regularDelta = 10;
-    int interval_ms = 1 * 5 * 1'000;
+    Q_OBJECT
 public:
+    explicit CoinHolder(QObject *parent = nullptr);
     QTimer* timer;
-    CoinHolder();
     ~CoinHolder();
     bool loadFromJson(QString path);
     bool saveToJson(QString path);
@@ -19,8 +18,14 @@ public:
     void substract(int val);
     int getBallance();
     static CoinHolder* mainCoinHolder;
-public slots:
-      void addRegular();
+
+private:
+    int balance = 0;
+    int regularDelta = 10;
+    int interval_ms = 1 * 5 * 1'000;
+private slots:
+      void addRegularIncome();
+
 };
 
 #endif // COINHOLDER_H

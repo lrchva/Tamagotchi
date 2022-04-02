@@ -8233,4 +8233,7 @@
  </widget>
  <resources/>
  <connections/>
+ <slots>
+  <signal>ItemPurchased()</signal>
+ </slots>
 </ui>

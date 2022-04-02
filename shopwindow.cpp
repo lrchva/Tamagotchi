@@ -20,6 +20,7 @@ void ShopWindow::shopItemButtonClicked()
                     *(shopInv[cur.second].item),
                     shopInv[cur.second].count,
                     shopInv[cur.second].pathToSkin);
+            emit itemPurchased();
             return;
         }
     }
@@ -458,7 +459,7 @@ void ShopWindow::displayShop()
     {
         for(auto cur : cathegory)
         {
-            QObject::connect(cur.first, SIGNAL(clicked()), this, SLOT(shopButtonClicked()));
+            QObject::connect(cur.first, SIGNAL(clicked()), this, SLOT(shopItemButtonClicked()));
         }
     }
 }

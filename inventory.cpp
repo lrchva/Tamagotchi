@@ -133,6 +133,7 @@ void Inventory::addItem(Misc a, size_t count, QString pathToSkin)
         temp.count = count;
         this->storage.push_back(temp);
     }
+    int fictive = 0;
 }
 
 void Inventory::removeItem(size_t index, size_t count)

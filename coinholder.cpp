@@ -5,16 +5,24 @@
 
 CoinHolder* CoinHolder::mainCoinHolder = nullptr;
 
-CoinHolder::CoinHolder()
+CoinHolder::CoinHolder(QObject *parent)
+    : QObject{parent}
 {
     if(!loadFromJson("D:\\\\Repos\\Al_Tama\\coinHolder.json")) throw std::exception();
-
-    timer = new QTimer();
-    timer->setInterval(this->interval_ms);
-    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(this->addRegular()));
-    timer->start();
-    mainCoinHolder = this;
+        mainCoinHolder = this;
+        timer = new QTimer();
+        QObject::connect(CoinHolder::mainCoinHolder->timer, SIGNAL(timeout()), CoinHolder::mainCoinHolder, SLOT(addRegularIncome()));
+         timer->setInterval(this->interval_ms);
+        timer->start();
 }
+
+void CoinHolder::addRegularIncome()
+{
+    this->balance += regularDelta;
+    timer->setInterval(this->interval_ms);
+    timer->start();
+}
+
 CoinHolder::~CoinHolder()
 {
     saveToJson("D:\\\\Repos\\Al_Tama\\coinHolder.json");
@@ -50,12 +58,6 @@ bool CoinHolder::saveToJson(QString path)
     fout.write(doc.toJson());
     fout.close();
     return true;
-}
-void CoinHolder::addRegular()
-{
-    this->balance += regularDelta;
-    timer->setInterval(this->interval_ms);
-    timer->start();
 }
 void CoinHolder::add(int val)
 {

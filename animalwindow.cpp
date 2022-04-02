@@ -56,7 +56,6 @@ void AnimalWindow::displayInventory()
         {
             itemButtons["food"][k1].first->setIcon(QIcon(inv[i].pathToSkin));
             itemButtons["food"][k1].second = inv[i].item->name;
-            //TODO: to the rest
             labels["food"][k1].first->setText(QString::number(inv[i].count));
             k1++;
         }
@@ -157,6 +156,7 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
     shopWindow = new ShopWindow();
     timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(decreaseByTimer()));
+    QObject::connect(shopWindow, SIGNAL(itemPurchad()), this, SLOT(redisplayInventorySlot()));
     timer->setInterval(5'000);
     timer->start();
 
@@ -456,3 +456,7 @@ void AnimalWindow::on_t1_saveButton_clicked()
     }
 }
 
+void AnimalWindow::redisplayInventorySlot()
+{
+    displayInventory();
+}

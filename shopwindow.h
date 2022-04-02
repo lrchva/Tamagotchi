@@ -31,6 +31,8 @@ public:
 private slots:
     void shopItemButtonClicked();   // todo
     void redisplayBalance();
+signals:
+    void itemPurchased();
 
 private:
     Ui::ShopWindow *ui;
