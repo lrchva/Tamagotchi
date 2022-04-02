@@ -156,7 +156,7 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
     shopWindow = new ShopWindow();
     timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(decreaseByTimer()));
-    QObject::connect(shopWindow, SIGNAL(itemPurchad()), this, SLOT(redisplayInventorySlot()));
+    QObject::connect(shopWindow, SIGNAL(itemPurchased()), this, SLOT(redisplayInventorySlot()));
     timer->setInterval(5'000);
     timer->start();
 
