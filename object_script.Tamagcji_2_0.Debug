@@ -1,0 +1,12 @@
+debug/Misc.o
+debug/animal.o
+debug/animalwindow.o
+debug/coinholder.o
+debug/inventory.o
+debug/main.o
+debug/mainwindow.o
+debug/shopwindow.o
+debug/moc_animalwindow.o
+debug/moc_coinholder.o
+debug/moc_mainwindow.o
+debug/moc_shopwindow.o

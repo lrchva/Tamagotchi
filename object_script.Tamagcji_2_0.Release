@@ -1,0 +1,12 @@
+release/Misc.o
+release/animal.o
+release/animalwindow.o
+release/coinholder.o
+release/inventory.o
+release/main.o
+release/mainwindow.o
+release/shopwindow.o
+release/moc_animalwindow.o
+release/moc_coinholder.o
+release/moc_mainwindow.o
+release/moc_shopwindow.o

@@ -38,7 +38,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    Animals.json \
-    Items.json \
-    coinHolder.json \
-    decreasers.json
+    release/Resources/Animals.json \
+    release/Resources/Items.json \
+    release/Resources/coinHolder.json \
+    release/Resources/decreasers.json

@@ -44,10 +44,22 @@
        <height>350</height>
       </rect>
      </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="minimumSize">
       <size>
        <width>350</width>
        <height>350</height>
+      </size>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
       </size>
      </property>
      <property name="frameShadow">
@@ -55,9 +67,6 @@
      </property>
      <property name="text">
       <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>C:/Users/Horockey/Desktop/472862.jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -805,10 +814,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>ShopButtonSkin.png</normaloff>ShopButtonSkin.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -1803,10 +1808,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>ShopButtonSkin.png</normaloff>ShopButtonSkin.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -2676,10 +2677,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>ShopButtonSkin.png</normaloff>ShopButtonSkin.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -3602,10 +3599,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>ShopButtonSkin.png</normaloff>ShopButtonSkin.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -4259,10 +4252,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -4290,10 +4279,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4342,10 +4327,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -4373,10 +4354,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4406,10 +4383,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -4437,10 +4410,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>ShopButtonSkin.png</normaloff>ShopButtonSkin.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4489,10 +4458,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -4520,10 +4485,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4553,10 +4514,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -4584,10 +4541,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4674,10 +4627,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -4724,10 +4673,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4776,10 +4721,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -4807,10 +4748,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4840,10 +4777,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -4871,10 +4804,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4923,10 +4852,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -4954,10 +4879,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -5006,10 +4927,6 @@
             <height>50</height>
            </size>
           </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
-          </property>
           <property name="iconSize">
            <size>
             <width>50</width>
@@ -5037,10 +4954,6 @@
             <width>50</width>
             <height>50</height>
            </size>
-          </property>
-          <property name="icon">
-           <iconset>
-            <normaloff>../../Horockey/Desktop/111.png</normaloff>../../Horockey/Desktop/111.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -5308,9 +5221,6 @@
         <property name="text">
          <string/>
         </property>
-        <property name="pixmap">
-         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
-        </property>
        </widget>
       </item>
       <item>
@@ -5369,9 +5279,6 @@
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5432,9 +5339,6 @@
         <property name="text">
          <string/>
         </property>
-        <property name="pixmap">
-         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
-        </property>
        </widget>
       </item>
       <item>
@@ -5493,9 +5397,6 @@
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>
@@ -5561,9 +5462,6 @@
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>C:/Users/Horockey/Desktop/15432400240.jpg</pixmap>
         </property>
        </widget>
       </item>

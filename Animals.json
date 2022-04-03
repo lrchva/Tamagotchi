@@ -18,7 +18,7 @@
   },
   "Barsik": {
     "type": "Cat",
-    "pathToSkin": "C:\\Users\\user\\Desktop\\Tamagotchi\\Skins for tamagotchi project \\Cat.PNG",
+	"pathToSkin": "Cat.PNG",
     "level": 1,
     "chars": {
       "hunger_max": 100,
@@ -35,7 +35,7 @@
   },
   "Bobik": {
     "type": "Dog",
-    "pathToSkin": "C:\\Users\\user\\Desktop\\Tamagotchi\\Skins for tamagotchi project \\Dog.JPG",
+	"pathToSkin": "Dog.JPG",
     "level": 1,
     "chars": {
       "hunger_max": 40,

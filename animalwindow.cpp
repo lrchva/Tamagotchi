@@ -45,6 +45,13 @@ void AnimalWindow::displayInventory()
         itemButtons["pet"][i].first->setVisible(false);
         labels["pet"][i].first->setVisible(false);
     }
+    for(auto curButton : toShopButtons)
+    {
+        QString tempPathToSkin = QCoreApplication::applicationDirPath()+"/Resources/Skins/ShopButtonSkin.png";
+        while(tempPathToSkin.count("/") > 0) tempPathToSkin.replace("/", "\\");
+        tempPathToSkin.replace(":\\", ":\\\\");
+        curButton->setIcon(QIcon(tempPathToSkin));
+    }
     size_t k1 = 0;
     size_t k2 = 0;
     size_t k3 = 0;
@@ -52,37 +59,40 @@ void AnimalWindow::displayInventory()
     size_t k5 = 0;
     for(size_t i = 0; i < inv.size("all"); i++)
     {
+        QString tempPathToSkin = QCoreApplication::applicationDirPath()+"/Resources/Skins/"+inv[i].pathToSkin;
+        while(tempPathToSkin.count("/") > 0) tempPathToSkin.replace("/", "\\");
+        tempPathToSkin.replace(":\\", ":\\\\");
         if(inv[i].item->type == Misc::typeEnum::FOOD)
         {
-            itemButtons["food"][k1].first->setIcon(QIcon(inv[i].pathToSkin));
+            itemButtons["food"][k1].first->setIcon(QIcon(tempPathToSkin));
             itemButtons["food"][k1].second = inv[i].item->name;
             labels["food"][k1].first->setText(QString::number(inv[i].count));
             k1++;
         }
         if(inv[i].item->type == Misc::typeEnum::WASH)
         {
-            itemButtons["wash"][k2].first->setIcon(QIcon(inv[i].pathToSkin));
+            itemButtons["wash"][k2].first->setIcon(QIcon(tempPathToSkin));
             itemButtons["wash"][k2].second = inv[i].item->name;
             labels["wash"][k2].first->setText(QString::number(inv[i].count));
             k2++;
         }
         if(inv[i].item->type == Misc::typeEnum::WALK)
         {
-            itemButtons["walk"][k3].first->setIcon(QIcon(inv[i].pathToSkin));
+            itemButtons["walk"][k3].first->setIcon(QIcon(tempPathToSkin));
             itemButtons["walk"][k3].second = inv[i].item->name;
             labels["walk"][k3].first->setText(QString::number(inv[i].count));
             k3++;
         }
         if(inv[i].item->type == Misc::typeEnum::SLEEP)
         {
-            itemButtons["sleep"][k4].first->setIcon(QIcon(inv[i].pathToSkin));
+            itemButtons["sleep"][k4].first->setIcon(QIcon(tempPathToSkin));
             itemButtons["sleep"][k4].second = inv[i].item->name;
             labels["sleep"][k4].first->setText(QString::number(inv[i].count));
             k4++;
         }
         if(inv[i].item->type == Misc::typeEnum::PET)
         {
-            itemButtons["pet"][k5].first->setIcon(QIcon(inv[i].pathToSkin));
+            itemButtons["pet"][k5].first->setIcon(QIcon(tempPathToSkin));
             itemButtons["pet"][k5].second = inv[i].item->name;
             labels["pet"][k5].first->setText(QString::number(inv[i].count));
             k5++;
@@ -154,9 +164,16 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     shopWindow = new ShopWindow();
+
+    ui->Hunger_PB->setPixmap(QPixmap(QCoreApplication::applicationDirPath()+"/Resources/Skins/15432400240.jpg"));
+    ui->Wash_PB->setPixmap(QPixmap(QCoreApplication::applicationDirPath()+"/Resources/Skins/15432400240.jpg"));
+    ui->Walk_PB->setPixmap(QPixmap(QCoreApplication::applicationDirPath()+"/Resources/Skins/15432400240.jpg"));
+    ui->Pet_PB->setPixmap(QPixmap(QCoreApplication::applicationDirPath()+"/Resources/Skins/15432400240.jpg"));
+    ui->Sleep_PB->setPixmap(QPixmap(QCoreApplication::applicationDirPath()+"/Resources/Skins/15432400240.jpg"));
+
     timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(decreaseByTimer()));
-    QObject::connect(shopWindow, SIGNAL(itemPurchased()), this, SLOT(redisplayInventorySlot()));
+    QObject::connect(shopWindow, SIGNAL(itemPurchased()), this, SLOT(redisplayInventorySlot()));//No effect
     timer->setInterval(5'000);
     timer->start();
 
@@ -402,7 +419,7 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
         QObject::connect(cur, SIGNAL(clicked()), this, SLOT(toShopButtonClicked()));
     }
 
-    if(inv.loadFromJson("D:\\\\Repos\\Al_Tama\\Items.json"))
+    if(inv.loadFromJson(QCoreApplication::applicationDirPath() + "/Resources/Items.json"))
     {
         QMessageBox::information(this, "Title", "Inventory loading successfull");
         displayInventory();
@@ -411,7 +428,7 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
     {
         QMessageBox::critical(this, "Title", "Inventory loading failed");
     }
-    if(decreaser.loadFromJson("D:\\\\Repos\\Al_Tama\\decreasers.json"))
+    if(decreaser.loadFromJson(QCoreApplication::applicationDirPath() + "/Resources/decreasers.json"))
     {
         QMessageBox::information(this, "Title", "Decreaser loading successfull");
         displayInventory();
@@ -420,10 +437,15 @@ AnimalWindow::AnimalWindow(QWidget *parent) :
     {
         QMessageBox::critical(this, "Title", "Decreaser loading failed");
     }
-    if(Animal::loadFromJson("D:\\\\Repos\\Al_Tama\\Animals.json"))
+    if(Animal::loadFromJson(QCoreApplication::applicationDirPath() + "/Resources/Animals.json"))
     {
         QMessageBox::information(this, "Title", "Animal loading successfull");
         displayAnimalChars();
+        for(int i = 0; i < Animal::storage.size() && i < ui->tabWidget->count(); i++)
+        {
+            ui->tabWidget->setCurrentIndex(i);
+            ui->animalPictureBox->setPixmap(QPixmap(QCoreApplication::applicationDirPath()+"/Resources/Skins/"+Animal::storage[i].pathToSkin));
+        }
     }
     else
     {
@@ -449,6 +471,7 @@ void AnimalWindow::on_t1_saveButton_clicked()
     if(Animal::saveToJson("Animals.json"))
     {
          QMessageBox::information(this, "Title", "Animals set saving successfull");
+
     }
     else
     {

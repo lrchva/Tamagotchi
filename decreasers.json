@@ -2,7 +2,7 @@
   "cat decreaser": {
     "type": "",
     "price": 0,
-    "pathToSkin": "C:\\Users\\user\\Desktop\\Tamagotchi\\Skins\\Cat.PNG",
+	"pathToSkin": "Cat.PNG",
     "rank": 1,
     "toWhom": "cat",
     "count": 100,
